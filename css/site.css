@@ -44,6 +44,14 @@ body {
     color: var(--mdc-theme-secondary);
 }
 
+.mdc-text-field--color:after {
+    content: attr(data-color);
+    position: absolute;
+    color: var(--mdc-theme-secondary);
+    right: 62px;
+    top: 17px;
+}
+
 .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading {
     border-radius: 28px 0 0 28px;
     width: 28px;
@@ -83,6 +91,15 @@ body {
 .mdc-text-field__input--number::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+.mdc-text-field__input--color {
+    width: 32px;
+    height: 32px !important;
+    border-radius: 4px;
+    position: absolute;
+    right: 23px;
+    top: 12px;
 }
 
 .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {

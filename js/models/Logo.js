@@ -14,6 +14,7 @@
 
         this.version = args.version || "";
         this.iconSize = utils.parseInt(args, "iconSize", 280);
+        this.iconColor = (args.iconColor || "").length === 7 ? ko.observable(args.iconColor) : ko.observable("#ffffff");
     };
 
     //#endregion
