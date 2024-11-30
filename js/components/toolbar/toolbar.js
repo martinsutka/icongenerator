@@ -23,12 +23,45 @@
 	 */
     let Toolbar = function (args = {}) {
         console.debug("Toolbar()");
+
+        this.shareCallback = args.shareCallback;
+        this.downloadCallback = args.downloadCallback;
     };
 
     //#endregion
 
 
     //#region [ Methods : Public ]
+
+    /**
+     * Shares the logo as link.
+     */
+    Toolbar.prototype.share = function () {
+        let share = this.shareCallback;
+
+        if (typeof (share) !== "function") {
+            console.warn(`Toolbar : share() : Missing 'shareCallback'.`);
+            return;
+        }
+
+        share();
+    };
+
+
+    /**
+     * Downloads the logo as an png image.
+     */
+    Toolbar.prototype.download = function () {
+        let download = this.downloadCallback;
+
+        if (typeof (download) !== "function") {
+            console.warn(`Toolbar : download() : Missing 'downloadCallback'.`);
+            return;
+        }
+
+        download();
+    };
+
 
     /**
      * Direct method to receive a descendantsComplete notification.

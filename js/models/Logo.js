@@ -18,6 +18,22 @@
 
 
     //#region [ Methods : Public ]
+
+    /**
+     * Shares the logo as link.
+     */
+    Logo.prototype.share = function () {
+        console.warn("share %o", this);
+    };
+
+
+    /**
+     * Downloads the logo as an png image.
+     */
+    Logo.prototype.download = function () {
+        console.warn("download %o", this);
+    };
+
     //#endregion
 
 
