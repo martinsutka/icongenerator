@@ -44,6 +44,11 @@ body {
     color: var(--mdc-theme-secondary);
 }
 
+.mdc-text-field--percentages:after {
+    content: "\00a0%";
+    color: var(--mdc-theme-secondary);
+}
+
 .mdc-text-field--color:after {
     content: attr(data-value);
     position: absolute;
