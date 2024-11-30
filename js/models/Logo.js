@@ -1,6 +1,7 @@
 ﻿define([
-    "knockout"
-], (ko) => {
+    "knockout",
+    "msu/utils"
+], (ko, utils) => {
     //#region [ Constructor ]
 
     /**
@@ -12,6 +13,7 @@
         console.debug("Logo()");
 
         this.version = args.version || "";
+        this.iconSize = utils.parseInt(args, "iconSize", 280);
     };
 
     //#endregion
