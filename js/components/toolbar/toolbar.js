@@ -38,7 +38,6 @@
      */
     Toolbar.prototype.koDescendantsComplete = function (node) {
         const root = node.firstElementChild;
-        //this.drawer = mdc.drawer.MDCDrawer.attachTo(root.querySelector(".mdc-drawer"));
         root.querySelectorAll(".mdc-button").forEach((n) => new mdc.ripple.MDCRipple(n));
         node.replaceWith(root);
     };

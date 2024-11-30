@@ -10,6 +10,8 @@
 	 */
     let Logo = function (args = {}) {
         console.debug("Logo()");
+
+        this.version = args.version || "";
     };
 
     //#endregion

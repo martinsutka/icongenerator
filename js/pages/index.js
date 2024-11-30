@@ -1,7 +1,8 @@
 define([
     "knockout", 
-    "module"
-], (ko, module) => {
+    "module",
+    "msu/models/Logo"
+], (ko, module, Logo) => {
     //#region [ Fields ]
 
     const global = (function () { return this; })();
@@ -39,7 +40,10 @@ define([
     //#region [ Start ]
 
     ready(() => {
-        ko.applyBindings(module.config(), doc.body, (context) => {
+        const options = global.structuredClone(module.config());
+        const logo = global.logo = new Logo(options);
+
+        ko.applyBindings(logo, doc.body, (context) => {
             //context.router = router;
         });
     });
