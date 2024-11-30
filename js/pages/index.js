@@ -1,8 +1,9 @@
 define([
     "knockout", 
     "module",
+    "material-components-web",
     "msu/models/Logo"
-], (ko, module, Logo) => {
+], (ko, module, mdc, Logo) => {
     //#region [ Fields ]
 
     const global = (function () { return this; })();
@@ -46,6 +47,8 @@ define([
         ko.applyBindings(logo, doc.body, (context) => {
             //context.router = router;
         });
+
+        doc.querySelectorAll(".mdc-text-field").forEach((n) => mdc.textField.MDCTextField.attachTo(n));
     });
 
     //#endregion

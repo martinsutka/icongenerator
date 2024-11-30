@@ -36,7 +36,17 @@
                                      downloadCallback: download.bind($root)"></msu-toolbar>
             </div>
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
-                TODO
+                <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--pixels">
+                    <span class="mdc-notched-outline mdc-notched-outline--upgraded">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label">Size</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <input type="number" class="mdc-text-field__input mdc-text-field__input--number" type="text" step="1" min="16" max="1024"
+                           data-bind="textInput: iconSize" />
+                </label>
             </div>
         </div>
     </div>
