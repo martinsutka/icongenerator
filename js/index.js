@@ -18,7 +18,17 @@ require({
         "msu/pages/index": {
             version: "1.0.0",
         },
-        "msu/components/toolbar/toolbar": {
+        "msu/components/tabs/tabs": {
+            items: [{
+                id: "icon",
+                text: "Icon"
+            }, {
+                id: "background",
+                text: "Background"
+            }, {
+                id: "badge",
+                text: "Badge"
+            }]
         }
     }
 }, ["msu/pages/index"]);

@@ -16,6 +16,7 @@ define([
     //#region [ Component registration ]
 
     ko.components.register("msu-toolbar", { require: "msu/components/toolbar/toolbar" });
+    ko.components.register("msu-tabs", { require: "msu/components/tabs/tabs" });
 
     //#endregion
 
@@ -49,6 +50,7 @@ define([
             //context.router = router;
         });
 
+        // TODO : REMOVE
         doc.querySelectorAll(".mdc-text-field").forEach((n) => mdc.textField.MDCTextField.attachTo(n));
     });
 
