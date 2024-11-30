@@ -45,7 +45,7 @@ body {
 }
 
 .mdc-text-field--color:after {
-    content: attr(data-color);
+    content: attr(data-value);
     position: absolute;
     color: var(--mdc-theme-secondary);
     right: 62px;

@@ -2,7 +2,8 @@ define([
     "knockout", 
     "module",
     "material-components-web",
-    "msu/models/Logo"
+    "msu/models/Logo",
+    "msu/bindings/datavalue"
 ], (ko, module, mdc, Logo) => {
     //#region [ Fields ]
 
