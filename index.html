@@ -25,7 +25,19 @@
     <link rel="stylesheet" href="css/site.css" />
 </head>
 <body class="mdc-typography">
-    <msu-todo></msu-todo>
-    <script data-main="../icongenerator/js/app.js" src="js/lib/require.js"></script>
+    <div class="container mdc-layout-grid">
+        <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                <h1 class="mdc-typography--headline1">Icon Generator</h1>
+            </div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+                <msu-todo></msu-todo>
+            </div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+                <msu-todo></msu-todo>
+            </div>
+        </div>
+    </div>
+    <script data-main="../icongenerator/js/index.js" src="js/lib/require.js"></script>
 </body>
 </html>

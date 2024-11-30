@@ -6,6 +6,25 @@ html, body {
 body {
     --mdc-typography-font-family: "Open Sans";
     --mdc-typography-body1-font-family: var(--mdc-typography-font-family);
+
+    --mdc-typography-headline1-font-size: 40px;
+    --mdc-typography-headline1-line-height: 40px;
+    --mdc-typography-headline1-font-weight: 700;
+    --mdc-typography-headline1-margin: 0;
+
+    --mdc-theme-background: #f4f5f7;
+    --mdc-theme-surface: #1e2738;
+    --mdc-theme-primary: #fe655c;
+    --mdc-theme-secondary: #465981;
+    --mdc-theme-link: #629feb;
+    --mdc-theme-icon: #d7dde9;
+
+    background-color: var(--mdc-theme-background);
+}
+
+.mdc-typography--headline1 {
+    margin: var(--mdc-typography-headline1-margin);
+    color: var(--mdc-theme-secondary);
 }
 
 .container {
