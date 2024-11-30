@@ -1,0 +1,29 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    --mdc-typography-font-family: "Open Sans";
+    --mdc-typography-body1-font-family: var(--mdc-typography-font-family);
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 70vw;
+}
+
+/* tablet */
+@media (max-width:839px) {
+    .container {
+        width: 98%;
+    }
+}
+
+/* phone */
+@media (max-width: 599px) {
+    .container {
+        width: 98%;
+    }
+}
