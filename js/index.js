@@ -18,7 +18,7 @@ require({
         "msu/pages/index": {
             version: "1.0.0",
         },
-        "msu/components/todo/todo": {
+        "msu/components/toolbar/toolbar": {
         }
     }
 }, ["msu/pages/index"]);

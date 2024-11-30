@@ -12,7 +12,7 @@ define([
 
     //#region [ Component registration ]
 
-    ko.components.register("msu-todo", { require: "msu/components/todo/todo" });
+    ko.components.register("msu-toolbar", { require: "msu/components/toolbar/toolbar" });
 
     //#endregion
 
