@@ -37,6 +37,15 @@
 
 
     /**
+     * Opens Font2Svg website in order to convert text to svg.
+     */
+    Tools.prototype.font2svg = function () {
+        const text = prompt("Text to convert", "test");
+        global.open(`https://danmarshall.github.io/google-font-to-svg-path/?font-select=Viga&font-variant=regular&input-union=false&input-filled=true&input-kerning=true&input-separate=false&input-text=${text.toUpperCase()}&input-bezier-accuracy=&dxf-units=cm&input-size=100`, "_blank").focus();
+    };
+
+
+    /**
      * Direct method to receive a descendantsComplete notification.
      * Knockout will call it with the component’s node once all descendants are bound.
      * 
