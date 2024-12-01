@@ -25,6 +25,7 @@
 
         this.isBackgroundTransparent = utils.parseBool(args, "isBackgroundTransparent", false);
         this.backgroundColor = (args.backgroundColor || "").length === 7 ? ko.observable(args.backgroundColor) : ko.observable("#212121");
+        this.backgroundLightIntensity = utils.parseInt(args, "backgroundLightIntensity", 0);
     };
 
     //#endregion

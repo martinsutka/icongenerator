@@ -15,6 +15,7 @@
 
         this.isTransparent = ko.isObservable(args.isTransparent) ? args.isTransparent : ko.observable(false);
         this.color = ko.isObservable(args.color) ? args.color : ko.observable("#212121");
+        this.lightIntensity = ko.isObservable(args.lightIntensity) ? args.lightIntensity : ko.observable(0);
     };
 
     //#endregion
