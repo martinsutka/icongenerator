@@ -42,5 +42,32 @@
             <input type="number" class="mdc-text-field__input mdc-text-field__input--number" step="1" min="0" max="100"
                 data-bind="textInput: lightIntensity" />
         </label>
-    </div>    
+    </div>
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--color"
+            data-bind="datavalue: shadowColor">
+            <span class="mdc-notched-outline mdc-notched-outline--upgraded">
+                <span class="mdc-notched-outline__leading"></span>
+                <span class="mdc-notched-outline__notch">
+                    <span class="mdc-floating-label">Shadow Color</span>
+                </span>
+                <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <input type="color" class="mdc-text-field__input mdc-text-field__input--color"
+                data-bind="textInput: shadowColor" />
+        </label>
+    </div>
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--pixels">
+            <span class="mdc-notched-outline mdc-notched-outline--upgraded">
+                <span class="mdc-notched-outline__leading"></span>
+                <span class="mdc-notched-outline__notch">
+                    <span class="mdc-floating-label">Shadow Size</span>
+                </span>
+                <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <input type="number" class="mdc-text-field__input mdc-text-field__input--number" step="1" min="16" max="1024"
+                data-bind="textInput: shadowSize" />
+        </label>
+    </div>
 </div>
