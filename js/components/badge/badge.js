@@ -12,6 +12,9 @@
 	 */
     let Badge = function (args = {}) {
         console.debug("Badge()");
+
+        this.color = ko.isObservable(args.color) ? args.color : ko.observable("#ffffff");
+        this.backgroundColor = ko.isObservable(args.backgroundColor) ? args.backgroundColor : ko.observable("#2196f3");
     };
 
     //#endregion

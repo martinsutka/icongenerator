@@ -29,6 +29,9 @@
         this.backgroundShadowColor = (args.backgroundShadowColor || "").length === 7 ? ko.observable(args.backgroundShadowColor) : ko.observable("#000000");
         this.backgroundShadowSize = utils.parseInt(args, "backgroundShadowSize", 0);
         this.backgroundBorderRadius = utils.parseInt(args, "backgroundBorderRadius", 0);
+
+        this.badgeColor = (args.badgeColor || "").length === 7 ? ko.observable(args.badgeColor) : ko.observable("#ffffff");
+        this.badgeBackgroundColor = (args.badgeBackgroundColor || "").length === 7 ? ko.observable(args.badgeBackgroundColor) : ko.observable("#2196f3");
     };
 
     //#endregion
