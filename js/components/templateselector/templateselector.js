@@ -35,6 +35,7 @@
      */
     TemplateSelector.prototype.koDescendantsComplete = function (node) {
         const root = node.firstElementChild;
+        const component = new mdc.textField.MDCTextField(root);
         node.replaceWith(root);
     };
 
