@@ -1,17 +1,8 @@
 ﻿define([
     "text!./tabs.html",
-    "css!./tabs.css",
-    "module",
     "knockout",
     "material-components-web"
-], (view, css, module, ko, mdc) => {
-    //#region [ Fields ]
-
-    const cnf = module.config();
-    
-    //#endregion
-    
-
+], (view, ko, mdc) => {
     //#region [ Constructor ]
 
     /**
@@ -22,8 +13,10 @@
     let Tabs = function (args = {}) {
         console.debug("Tabs()");
 
-        this.items = cnf.items;
+        this.items = [ "Icon", "Background", "Badge" ];
+        this.tab = ko.isObservable(args.tab) ? args.tab : ko.observable(0);
         this.tabBar = null;
+        this._tabOnChangeSubscribe = null;
     };
 
     //#endregion
@@ -39,11 +32,11 @@
      */
     Tabs.prototype.koDescendantsComplete = function (node) {
         const root = node.firstElementChild;
-        
         this.tabBar = new mdc.tabBar.MDCTabBar(root);
-        this.tabBar.activateTab(0);
-
         node.replaceWith(root);
+        
+        this._tabOnChangeSubscribe = this.tab.subscribe(this._tabOnChange, this);
+        this._tabOnChange(this.tab());
     };
 
 
@@ -52,6 +45,22 @@
      */
     Tabs.prototype.dispose = function () {
         console.debug("~Tabs()");
+
+        this._tabOnChangeSubscribe.dispose();
+    };
+
+    //#endregion
+
+
+    //#region [ Methods : Private ]
+
+    /**
+     * Event handler for the current tab change event.
+     * 
+     * @param {number} value Index of the current tab.
+     */
+    Tabs.prototype._tabOnChange = function(value) {
+        this.tabBar.activateTab(value);
     };
 
     //#endregion

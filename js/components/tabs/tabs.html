@@ -3,9 +3,10 @@
         <div class="mdc-tab-scroller__scroll-area">
             <div class="mdc-tab-scroller__scroll-content"
                  data-bind="foreach: items">
-                <button class="mdc-tab" role="tab">
+                <button class="mdc-tab" role="tab"
+                        data-bind="click: () => $parent.tab($index())">
                     <span class="mdc-tab__content">
-                        <span class="mdc-tab__text-label" data-bind="text: text"></span>
+                        <span class="mdc-tab__text-label" data-bind="text: $data"></span>
                     </span>
                     <span class="mdc-tab-indicator">
                         <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>

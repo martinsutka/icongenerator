@@ -13,6 +13,8 @@
         console.debug("Logo()");
 
         this.version = args.version || "";
+        this.tab = utils.parseInt(args, "tab", 0);
+
         this.showGuidingLines = utils.parseBool(args, "showGuidingLines", true);
         this.iconSize = utils.parseInt(args, "iconSize", 280);
         this.iconColor = (args.iconColor || "").length === 7 ? ko.observable(args.iconColor) : ko.observable("#ffffff");
