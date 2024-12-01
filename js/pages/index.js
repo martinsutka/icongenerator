@@ -19,6 +19,7 @@ define([
     ko.components.register("msu-tabs", { require: "msu/components/tabs/tabs" });
     ko.components.register("msu-icon", { require: "msu/components/icon/icon" });
     ko.components.register("msu-background", { require: "msu/components/background/background" });
+    ko.components.register("msu-badge", { require: "msu/components/badge/badge" });
 
     //#endregion
 
