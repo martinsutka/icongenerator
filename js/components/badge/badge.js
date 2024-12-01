@@ -15,6 +15,8 @@
 
         this.color = ko.isObservable(args.color) ? args.color : ko.observable("#ffffff");
         this.backgroundColor = ko.isObservable(args.backgroundColor) ? args.backgroundColor : ko.observable("#2196f3");
+        this.text = ko.isObservable(args.text) ? args.text : ko.observable("");
+        this.font = ko.isObservable(args.font) ? args.font : ko.observable("700 20px Arial");
     };
 
     //#endregion

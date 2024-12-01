@@ -32,6 +32,8 @@
 
         this.badgeColor = (args.badgeColor || "").length === 7 ? ko.observable(args.badgeColor) : ko.observable("#ffffff");
         this.badgeBackgroundColor = (args.badgeBackgroundColor || "").length === 7 ? ko.observable(args.badgeBackgroundColor) : ko.observable("#2196f3");
+        this.badgeText = (args.badgeText || "").length ? ko.observable(args.badgeText) : ko.observable("");
+        this.badgeFont = (args.badgeFont || "").length ? ko.observable(args.badgeFont) : ko.observable("700 20px Arial");
     };
 
     //#endregion
