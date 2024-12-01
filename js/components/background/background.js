@@ -14,6 +14,7 @@
         console.debug("Background()");
 
         this.isTransparent = ko.isObservable(args.isTransparent) ? args.isTransparent : ko.observable(false);
+        this.color = ko.isObservable(args.color) ? args.color : ko.observable("#212121");
     };
 
     //#endregion
