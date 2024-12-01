@@ -17,6 +17,7 @@ define([
 
     ko.components.register("msu-toolbar", { require: "msu/components/toolbar/toolbar" });
     ko.components.register("msu-tabs", { require: "msu/components/tabs/tabs" });
+    ko.components.register("msu-icon", { require: "msu/components/icon/icon" });
 
     //#endregion
 
@@ -49,9 +50,6 @@ define([
         ko.applyBindings(logo, doc.body, (context) => {
             //context.router = router;
         });
-
-        // TODO : REMOVE
-        doc.querySelectorAll(".mdc-text-field").forEach((n) => mdc.textField.MDCTextField.attachTo(n));
     });
 
     //#endregion

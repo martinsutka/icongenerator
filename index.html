@@ -40,104 +40,17 @@
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
                         <msu-tabs params="tab: tab"></msu-tabs>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-                        <div class="mdc-form-field">
-                            <div class="mdc-checkbox">
-                                <input id="checkbox-1" type="checkbox" class="mdc-checkbox__native-control"
-                                       data-bind="checked: showGuidingLines" />
-                                <div class="mdc-checkbox__background">
-                                    <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
-                                        <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-                                    </svg>
-                                    <div class="mdc-checkbox__mixedmark"></div>
-                                </div>
-                                <div class="mdc-checkbox__ripple"></div>
-                                <div class="mdc-checkbox__focus-ring"></div>
-                            </div>
-                            <label for="checkbox-1">Show guiding lines</label>
-                        </div>
+                    <!-- ko if: tab() === 0 -->
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                        <msu-icon params="showGuidingLines: showGuidingLines,
+                                          color: iconColor,
+                                          size: iconSize,
+                                          shadowColor: iconShadowColor,
+                                          shadowSize: iconShadowSize,
+                                          shadowIntensity: iconShadowIntensity,
+                                          svg: iconSvg"></msu-icon>
                     </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--color"
-                               data-bind="datavalue: iconColor">
-                            <span class="mdc-notched-outline mdc-notched-outline--upgraded">
-                                <span class="mdc-notched-outline__leading"></span>
-                                <span class="mdc-notched-outline__notch">
-                                    <span class="mdc-floating-label">Color</span>
-                                </span>
-                                <span class="mdc-notched-outline__trailing"></span>
-                            </span>
-                            <input type="color" class="mdc-text-field__input mdc-text-field__input--color"
-                                   data-bind="textInput: iconColor" />
-                        </label>
-                    </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--pixels">
-                            <span class="mdc-notched-outline mdc-notched-outline--upgraded">
-                                <span class="mdc-notched-outline__leading"></span>
-                                <span class="mdc-notched-outline__notch">
-                                    <span class="mdc-floating-label">Size</span>
-                                </span>
-                                <span class="mdc-notched-outline__trailing"></span>
-                            </span>
-                            <input type="number" class="mdc-text-field__input mdc-text-field__input--number" step="1" min="16" max="1024"
-                                   data-bind="textInput: iconSize" />
-                        </label>
-                    </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--color"
-                               data-bind="datavalue: iconShadowColor">
-                            <span class="mdc-notched-outline mdc-notched-outline--upgraded">
-                                <span class="mdc-notched-outline__leading"></span>
-                                <span class="mdc-notched-outline__notch">
-                                    <span class="mdc-floating-label">Shadow Color</span>
-                                </span>
-                                <span class="mdc-notched-outline__trailing"></span>
-                            </span>
-                            <input type="color" class="mdc-text-field__input mdc-text-field__input--color"
-                                   data-bind="textInput: iconShadowColor" />
-                        </label>
-                    </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--pixels">
-                            <span class="mdc-notched-outline mdc-notched-outline--upgraded">
-                                <span class="mdc-notched-outline__leading"></span>
-                                <span class="mdc-notched-outline__notch">
-                                    <span class="mdc-floating-label">Shadow Size</span>
-                                </span>
-                                <span class="mdc-notched-outline__trailing"></span>
-                            </span>
-                            <input type="number" class="mdc-text-field__input mdc-text-field__input--number" step="1" min="16" max="1024"
-                                   data-bind="textInput: iconShadowSize" />
-                        </label>
-                    </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--percentages">
-                            <span class="mdc-notched-outline mdc-notched-outline--upgraded">
-                                <span class="mdc-notched-outline__leading"></span>
-                                <span class="mdc-notched-outline__notch">
-                                    <span class="mdc-floating-label">Shadow Intensity</span>
-                                </span>
-                                <span class="mdc-notched-outline__trailing"></span>
-                            </span>
-                            <input type="number" class="mdc-text-field__input mdc-text-field__input--number" step="1" min="0" max="100"
-                                   data-bind="textInput: iconShadowIntensity" />
-                        </label>
-                    </div>
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea">
-                            <span class="mdc-notched-outline mdc-notched-outline--upgraded">
-                                <span class="mdc-notched-outline__leading"></span>
-                                <span class="mdc-notched-outline__notch">
-                                    <span class="mdc-floating-label">Svg</span>
-                                </span>
-                                <span class="mdc-notched-outline__trailing"></span>
-                            </span>
-                            <span class="mdc-text-field__resizer">
-                                <textarea class="mdc-text-field__input" rows="5" cols="40" data-bind="textInput: iconSvg"></textarea>
-                            </span>
-                        </label>
-                    </div>
+                    <!-- /ko -->
                 </div>
             </div>
         </div>
