@@ -18,6 +18,7 @@ define([
     ko.components.register("msu-toolbar", { require: "msu/components/toolbar/toolbar" });
     ko.components.register("msu-tabs", { require: "msu/components/tabs/tabs" });
     ko.components.register("msu-icon", { require: "msu/components/icon/icon" });
+    ko.components.register("msu-background", { require: "msu/components/background/background" });
 
     //#endregion
 
