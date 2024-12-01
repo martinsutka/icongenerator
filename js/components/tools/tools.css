@@ -1,3 +1,7 @@
 ﻿.tools {
     --mdc-theme-primary: var(--mdc-theme-secondary);
+
+    height: 100%;
+    display: flex;
+    align-items: center;
 }

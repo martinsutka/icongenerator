@@ -35,7 +35,7 @@
      */
     Icon.prototype.koDescendantsComplete = function (node) {
         const root = node.firstElementChild;
-        root.querySelectorAll(".mdc-text-field").forEach((n) => mdc.textField.MDCTextField.attachTo(n));
+        root.querySelectorAll(".mdc-text-field").forEach((n) => new mdc.textField.MDCTextField(n));
         node.replaceWith(root);
     };
 
