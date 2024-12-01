@@ -6,8 +6,10 @@
         </span>
         <span class="mdc-notched-outline__trailing"></span>
     </span>
-    <select class="mdc-text-field__input">
-        <option value=""></option>
-        <option value="volvo">Volvo Volvo Volvo Volvo Volvo Volvo Volvo Volvo Volvo Volvo</option>
-    </select>
+    <select class="mdc-text-field__input"
+            data-bind="options: items, 
+                       optionsText: 'text',
+                       optionsValue: 'value',
+                       optionsCaption: '',
+                       value: selected"></select>
 </label>

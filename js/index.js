@@ -19,6 +19,16 @@ require({
             version: "1.0.0"
         },
         "msu/components/templateselector/templateselector": {
+            items: [{
+                text: "Apple touch icon",
+                value: 1
+            }, {
+                text: "Windows tile",
+                value: 2
+            }, {
+                text: "Windows tile wide",
+                value: 3
+            }]
         }
     }
 }, ["msu/pages/index"]);

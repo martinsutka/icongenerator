@@ -20,6 +20,9 @@
 	 */
     let TemplateSelector = function (args = {}) {
         console.debug("TemplateSelector()");
+
+        this.items = cnf.items || [];
+        this.selected = ko.observable();
     };
 
     //#endregion
