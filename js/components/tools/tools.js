@@ -1,8 +1,16 @@
 ﻿define([
     "text!./tools.html",
+    "css!./tools.css",
     "knockout",
     "material-components-web"
-], (view, ko, mdc) => {
+], (view, css, ko, mdc) => {
+    //#region [ Fields ]
+
+    const global = (function() { return this; })();
+    
+    //#endregion
+
+
     //#region [ Constructor ]
 
     /**
@@ -20,6 +28,15 @@
     //#region [ Methods : Public ]
 
     /**
+     * Opens the Iconify website in order to search for icons.
+     */
+    Tools.prototype.iconify = function() {
+        const text = prompt("Search for icon", "pdf");
+        global.open(`https://icon-sets.iconify.design/?query=${text}`, "_blank").focus();
+    };
+
+
+    /**
      * Direct method to receive a descendantsComplete notification.
      * Knockout will call it with the component’s node once all descendants are bound.
      * 
@@ -27,6 +44,7 @@
      */
     Tools.prototype.koDescendantsComplete = function (node) {
         const root = node.firstElementChild;
+        root.querySelectorAll(".mdc-button").forEach((n) => new mdc.ripple.MDCRipple(n));
         node.replaceWith(root);
     };
 

@@ -1,0 +1,3 @@
+﻿.tools {
+    --mdc-theme-primary: var(--mdc-theme-secondary);
+}
