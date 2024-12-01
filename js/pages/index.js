@@ -21,6 +21,7 @@ define([
     ko.components.register("msu-background", { require: "msu/components/background/background" });
     ko.components.register("msu-badge", { require: "msu/components/badge/badge" });
     ko.components.register("msu-renderer", { require: "msu/components/renderer/renderer" });
+    ko.components.register("msu-templateselector", { require: "msu/components/templateselector/templateselector" });
 
     //#endregion
 

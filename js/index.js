@@ -17,6 +17,8 @@ require({
     config: {
         "msu/pages/index": {
             version: "1.0.0"
+        },
+        "msu/components/templateselector/templateselector": {
         }
     }
 }, ["msu/pages/index"]);
