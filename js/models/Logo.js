@@ -28,6 +28,7 @@
         this.backgroundLightIntensity = utils.parseInt(args, "backgroundLightIntensity", 0);
         this.backgroundShadowColor = (args.backgroundShadowColor || "").length === 7 ? ko.observable(args.backgroundShadowColor) : ko.observable("#000000");
         this.backgroundShadowSize = utils.parseInt(args, "backgroundShadowSize", 0);
+        this.backgroundBorderRadius = utils.parseInt(args, "backgroundBorderRadius", 0);
     };
 
     //#endregion

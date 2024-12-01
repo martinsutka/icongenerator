@@ -18,6 +18,7 @@
         this.lightIntensity = ko.isObservable(args.lightIntensity) ? args.lightIntensity : ko.observable(0);
         this.shadowColor = ko.isObservable(args.shadowColor) ? args.shadowColor : ko.observable("#000000");
         this.shadowSize = ko.isObservable(args.shadowSize) ? args.shadowSize : ko.observable(0);
+        this.borderRadius = ko.isObservable(args.borderRadius) ? args.borderRadius : ko.observable(0);
     };
 
     //#endregion
