@@ -8,6 +8,7 @@ require({
         "knockout": "./lib/knockout-latest",
         "text": "./lib/text",
         "css": "./lib/css.min",
+        "less": "./lib/less.min",
         "material-components-web": "./lib/material-components-web.min"
     },
     map: {

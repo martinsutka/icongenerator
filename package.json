@@ -9,6 +9,7 @@
         "requirejs-text": "2.0.16",
         "require-css": "0.1.10",
         "material-components-web": "14.0.0",
-        "knockout": "3.5.1"
+        "knockout": "3.5.1",
+        "less": "4.2.1"
     }
 }

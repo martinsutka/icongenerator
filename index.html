@@ -40,7 +40,14 @@
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
                 <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-                        <msu-renderer></msu-renderer>
+                        <msu-renderer params="isBackgroundTransparent: isBackgroundTransparent,
+                                              backgroundWidth: backgroundWidth,
+                                              backgroundHeight: backgroundHeight,
+                                              backgroundColor: backgroundColor,
+                                              backgroundLightIntensity: backgroundLightIntensity,
+                                              backgroundShadowColor: backgroundShadowColor,
+                                              backgroundShadowSize: backgroundShadowSize,
+                                              backgroundBorderRadius: backgroundBorderRadius"></msu-renderer>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
                         <msu-toolbar params="shareCallback: share.bind($root),
