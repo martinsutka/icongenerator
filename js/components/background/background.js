@@ -14,6 +14,8 @@
         console.debug("Background()");
 
         this.isTransparent = ko.isObservable(args.isTransparent) ? args.isTransparent : ko.observable(false);
+        this.width = ko.isObservable(args.width) ? args.width : ko.observable(380);
+        this.height = ko.isObservable(args.height) ? args.height : ko.observable(380);
         this.color = ko.isObservable(args.color) ? args.color : ko.observable("#212121");
         this.lightIntensity = ko.isObservable(args.lightIntensity) ? args.lightIntensity : ko.observable(0);
         this.shadowColor = ko.isObservable(args.shadowColor) ? args.shadowColor : ko.observable("#000000");
