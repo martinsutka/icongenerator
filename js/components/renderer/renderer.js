@@ -21,6 +21,7 @@
         this.backgroundWidth = ko.isObservable(args.backgroundWidth) ? args.backgroundWidth : ko.observable(380);
         this.backgroundHeight = ko.isObservable(args.backgroundHeight) ? args.backgroundHeight : ko.observable(380);
         this.backgroundColor = ko.isObservable(args.backgroundColor) ? args.backgroundColor : ko.observable("#212121");
+        this.backgroundLightColor = ko.isObservable(args.backgroundLightColor) ? args.backgroundLightColor : ko.observable("#ffffff");
         this.backgroundLightIntensity = ko.isObservable(args.backgroundLightIntensity) ? args.backgroundLightIntensity : ko.observable(0);
         this.backgroundShadowColor = ko.isObservable(args.backgroundShadowColor) ? args.backgroundShadowColor : ko.observable("#000000");
         this.backgroundShadowSize = ko.isObservable(args.backgroundShadowSize) ? args.backgroundShadowSize : ko.observable(0);
@@ -71,6 +72,7 @@
         const backgroundWidth = parseInt(this.backgroundWidth());
         const backgroundHeight = parseInt(this.backgroundHeight());
         const backgroundColor = this.backgroundColor();
+        const backgroundLightColor = this.backgroundLightColor();
         const backgroundLightIntensity = parseInt(this.backgroundLightIntensity());
         const backgroundShadowColor = this.backgroundShadowColor();
         const backgroundShadowSize = parseInt(this.backgroundShadowSize());
@@ -95,7 +97,7 @@
         // Setup fill style
         if (backgroundLightIntensity > 0) {
             let gradient = ctx.createLinearGradient(0, 0, backgroundWidth, backgroundHeight);
-            gradient.addColorStop(0, mix(less.color("fff"), less.color(backgroundColor.substr(1)), { value: 40 }).toCSS());
+            gradient.addColorStop(0, mix(less.color(backgroundLightColor.substr(1)), less.color(backgroundColor.substr(1)), { value: 50 }).toCSS());
             gradient.addColorStop(backgroundLightIntensity / 100, backgroundColor);
             ctx.fillStyle = gradient;
         }

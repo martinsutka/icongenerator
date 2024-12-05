@@ -27,6 +27,7 @@
         this.backgroundWidth = utils.parseInt(args, "backgroundWidth", 380);
         this.backgroundHeight = utils.parseInt(args, "backgroundHeight", 380);
         this.backgroundColor = (args.backgroundColor || "").length === 7 ? ko.observable(args.backgroundColor) : ko.observable("#212121");
+        this.backgroundLightColor = (args.backgroundLightColor || "").length === 7 ? ko.observable(args.backgroundLightColor) : ko.observable("#ffffff");
         this.backgroundLightIntensity = utils.parseInt(args, "backgroundLightIntensity", 0);
         this.backgroundShadowColor = (args.backgroundShadowColor || "").length === 7 ? ko.observable(args.backgroundShadowColor) : ko.observable("#000000");
         this.backgroundShadowSize = utils.parseInt(args, "backgroundShadowSize", 0);
