@@ -3,7 +3,8 @@ define([
     "module",
     "material-components-web",
     "msu/models/Logo",
-    "msu/bindings/datavalue"
+    "msu/bindings/datavalue",
+    "msu/bindings/autoselect"
 ], (ko, module, mdc, Logo) => {
     //#region [ Fields ]
 

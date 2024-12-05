@@ -40,7 +40,7 @@
                 <span class="mdc-notched-outline__trailing"></span>
             </span>
             <input type="number" class="mdc-text-field__input mdc-text-field__input--number" step="1" min="16" max="1024"
-                data-bind="textInput: size" />
+                data-bind="textInput: size, autoselect: true" />
         </label>
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
@@ -67,7 +67,7 @@
                 <span class="mdc-notched-outline__trailing"></span>
             </span>
             <input type="number" class="mdc-text-field__input mdc-text-field__input--number" step="1" min="16" max="1024"
-                data-bind="textInput: shadowSize" />
+                data-bind="textInput: shadowSize, autoselect: true" />
         </label>
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
@@ -80,7 +80,7 @@
                 <span class="mdc-notched-outline__trailing"></span>
             </span>
             <input type="number" class="mdc-text-field__input mdc-text-field__input--number" step="1" min="0" max="100"
-                data-bind="textInput: shadowIntensity" />
+                data-bind="textInput: shadowIntensity, autoselect: true" />
         </label>
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
@@ -93,7 +93,8 @@
                 <span class="mdc-notched-outline__trailing"></span>
             </span>
             <span class="mdc-text-field__resizer">
-                <textarea class="mdc-text-field__input" rows="5" cols="40" data-bind="textInput: svg"></textarea>
+                <textarea class="mdc-text-field__input" rows="5" cols="40"
+                          data-bind="textInput: svg, autoselect: true"></textarea>
             </span>
         </label>
     </div>

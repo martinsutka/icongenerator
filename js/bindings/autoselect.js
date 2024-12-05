@@ -3,7 +3,7 @@ define([
 ], (ko) => {
     //#region [ Fields ]
 
-    let Handler = {};
+    var Handler = {};
 
     //#endregion
 
@@ -19,12 +19,15 @@ define([
      * @param {object} viewModel This parameter is deprecated in Knockout 3.x. Use bindingContext.$data or bindingContext.$rawData to access the view model instead.
      * @param {object} albindingContext An object that holds the binding context available to this element’s bindings.
      */
-    Handler.update = function(element, valueAccessor, allBindings, viewModel, bindingContext) {
-        const val = ko.unwrap(valueAccessor());
-        element.setAttribute("data-value", val || "");
+    Handler.init = function(element, valueAccessor, allBindings, viewModel, bindingContext) {
+        element.addEventListener("focus", function () {
+            if (typeof (element.select) === "function") {
+                element.select();
+            }
+        });
     };
 
     //#endregion
 
-    ko.bindingHandlers["datavalue"] = Handler;
+    ko.bindingHandlers["autoselect"] = Handler;
 });
