@@ -5,6 +5,13 @@
     "material-components-web",
     "less"
 ], (view, css, ko, mdc, less) => {
+    //#region [ Fields ]
+    
+    const global = (function() { return this; })();
+    
+    //#endregion
+
+
     //#region [ Constructor ]
 
     /**
@@ -18,6 +25,7 @@
         this.canvas = ko.observable(null);
 
         this.iconSize = ko.isObservable(args.iconSize) ? args.iconSize : ko.observable(280);
+        this.iconColor = ko.isObservable(args.iconColor) ? args.iconColor : ko.observable("#ffffff");
         this.iconSvg = ko.isObservable(args.iconSvg) ? args.iconSvg : ko.observable('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2M7 9.5C7 8.7 7.7 8 8.5 8s1.5.7 1.5 1.5S9.3 11 8.5 11S7 10.3 7 9.5m5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81M15.5 11c-.8 0-1.5-.7-1.5-1.5S14.7 8 15.5 8s1.5.7 1.5 1.5s-.7 1.5-1.5 1.5"/></svg>');
         
         this.isBackgroundTransparent = ko.isObservable(args.isBackgroundTransparent) ? args.isBackgroundTransparent : ko.observable(false);
@@ -73,6 +81,7 @@
         const canvas = this.canvas();
 
         const iconSize = parseInt(this.iconSize());
+        const iconColor = this.iconColor();
         const iconSvg = this.iconSvg();
 
         const isBackgroundTransparent = this.isBackgroundTransparent();
@@ -117,15 +126,8 @@
             ctx.shadowBlur = backgroundShadowSize;
         }
 
-        // Border radius
-        if (backgroundBorderRadius > 0) {
-            Renderer.roundRect(ctx, 0 + backgroundShadowSize, 0 + backgroundShadowSize, backgroundWidth - (2 * backgroundShadowSize), backgroundHeight - (2 * backgroundShadowSize), backgroundBorderRadius, !isBackgroundTransparent, false);
-            ctx.clip();
-        }
-        else {
-            Renderer.roundRect(ctx, 0 + backgroundShadowSize, 0 + backgroundShadowSize, backgroundWidth - (2 * backgroundShadowSize), backgroundHeight - (2 * backgroundShadowSize), {}, !isBackgroundTransparent, false);
-            ctx.clip();
-        }
+        // Draw background
+        Renderer.roundRect(ctx, 0 + backgroundShadowSize, 0 + backgroundShadowSize, backgroundWidth - (2 * backgroundShadowSize), backgroundHeight - (2 * backgroundShadowSize), backgroundBorderRadius > 0 ? backgroundBorderRadius : {}, !isBackgroundTransparent, false);
 
         // Clear shadow
         ctx.shadowBlur = 0;
@@ -142,6 +144,31 @@
 
             // Remove none fill color
             iconSvgNode.querySelectorAll("g[fill='none']").forEach((el) => el.removeAttribute("fill"));
+
+            // Prepare images for rendering
+            const images = [];
+
+            // Draw svg itself
+            images.unshift(new Promise((resolve) => {
+                iconSvgNode.style.fill = iconColor;
+                let iconSvgUrl = global.URL.createObjectURL(new Blob([ iconSvgNode.outerHTML ], { type: "image/svg+xml;charset=utf-8" }))
+
+                let img = new Image();
+                img.onload = (function (width, height, size, url) {
+                    global.URL.revokeObjectURL(url);
+                    resolve({
+                        img: this,
+                        x: (width - size) / 2,
+                        y: (height - size) / 2
+                    });
+                }).bind(img, backgroundWidth, backgroundHeight, iconSize, iconSvgUrl);
+                img.src = iconSvgUrl;
+            }));
+
+            // Wait until all images are rendered
+            Promise.all(images)
+                .then((images) => images.reverse().forEach((i) => ctx.drawImage(i.img, i.x, i.y)))
+                .catch(console.error);
         }
     };
 
