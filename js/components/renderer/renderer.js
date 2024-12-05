@@ -17,6 +17,9 @@
 
         this.canvas = ko.observable(null);
 
+        this.iconSize = ko.isObservable(args.iconSize) ? args.iconSize : ko.observable(280);
+        this.iconSvg = ko.isObservable(args.iconSvg) ? args.iconSvg : ko.observable('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2M7 9.5C7 8.7 7.7 8 8.5 8s1.5.7 1.5 1.5S9.3 11 8.5 11S7 10.3 7 9.5m5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81M15.5 11c-.8 0-1.5-.7-1.5-1.5S14.7 8 15.5 8s1.5.7 1.5 1.5s-.7 1.5-1.5 1.5"/></svg>');
+        
         this.isBackgroundTransparent = ko.isObservable(args.isBackgroundTransparent) ? args.isBackgroundTransparent : ko.observable(false);
         this.backgroundWidth = ko.isObservable(args.backgroundWidth) ? args.backgroundWidth : ko.observable(380);
         this.backgroundHeight = ko.isObservable(args.backgroundHeight) ? args.backgroundHeight : ko.observable(380);
@@ -68,6 +71,10 @@
      */
     Renderer.prototype._onRender = function () {
         const canvas = this.canvas();
+
+        const iconSize = parseInt(this.iconSize());
+        const iconSvg = this.iconSvg();
+
         const isBackgroundTransparent = this.isBackgroundTransparent();
         const backgroundWidth = parseInt(this.backgroundWidth());
         const backgroundHeight = parseInt(this.backgroundHeight());
@@ -81,7 +88,6 @@
         if (!canvas) {
             return;
         }
-        console.warn("_onRender");
 
         // Get less functions
         const mix = less.functions.functionRegistry.get("mix");
@@ -105,7 +111,7 @@
             ctx.fillStyle = backgroundColor;
         }
 
-        // Set up shadow        
+        // Set shadow        
         if (backgroundShadowSize > 0) {
             ctx.shadowColor = backgroundShadowColor;
             ctx.shadowBlur = backgroundShadowSize;
@@ -123,6 +129,20 @@
 
         // Clear shadow
         ctx.shadowBlur = 0;
+
+        // Set svg
+        let iconSvgNode = new DOMParser().parseFromString(iconSvg, "text/html").querySelector("svg");
+        if (iconSvgNode) {
+            // Set size
+            iconSvgNode.setAttribute("width", `${iconSize}px`);
+            iconSvgNode.setAttribute("height", `${iconSize}px`);
+
+            // Remove default fill color
+            iconSvgNode.querySelectorAll("[fill='currentColor']").forEach((el) => el.removeAttribute("fill"));
+
+            // Remove none fill color
+            iconSvgNode.querySelectorAll("g[fill='none']").forEach((el) => el.removeAttribute("fill"));
+        }
     };
 
     //#endregion
