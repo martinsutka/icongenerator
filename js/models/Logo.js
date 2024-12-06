@@ -66,7 +66,7 @@
     //#region [ Methods : Static ]
 
     Logo.SHOW_GUIDING_LINES = true;
-    Logo.ICON_SIZE = 280;
+    Logo.ICON_SIZE = 270;
     Logo.ICON_COLOR = "#ffffff";
     Logo.ICON_SHADOW_COLOR = "#000000";
     Logo.ICON_SHADOW_SIZE = 160;
@@ -75,7 +75,7 @@
     Logo.IS_BACKGROUND_TRANSPARENT = false;
     Logo.BACKGROUND_WIDTH = 380;
     Logo.BACKGROUND_HEIGHT = 380;
-    Logo.BACKGROUND_COLOR = "#212121";
+    Logo.BACKGROUND_COLOR = "#465981";
     Logo.BACKGROUND_LIGHT_COLOR = "#ffffff";
     Logo.BACKGROUND_LIGHT_INTENSITY = 0;
     Logo.BACKGROUND_SHADOW_COLOR = "#000000";
