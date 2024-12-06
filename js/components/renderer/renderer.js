@@ -25,7 +25,7 @@
 
         this.canvas = ko.observable(null);
 
-        this.iconSize = ko.isObservable(args.iconSize) ? args.iconSize : ko.observable(280);
+        this.iconSize = ko.isObservable(args.iconSize) ? args.iconSize : ko.observable(Logo.ICON_SIZE);
         this.iconColor = ko.isObservable(args.iconColor) ? args.iconColor : ko.observable("#ffffff");
         this.iconShadowColor = ko.isObservable(args.iconShadowColor) ? args.iconShadowColor : ko.observable("#000000");
         this.iconShadowSize = ko.isObservable(args.iconShadowSize) ? args.iconShadowSize : ko.observable(160);
