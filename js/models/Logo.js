@@ -66,7 +66,7 @@
     //#region [ Methods : Static ]
 
     Logo.SHOW_GUIDING_LINES = true;
-    Logo.ICON_SIZE = 270;
+    Logo.ICON_SIZE = 240;
     Logo.ICON_COLOR = "#ffffff";
     Logo.ICON_SHADOW_COLOR = "#000000";
     Logo.ICON_SHADOW_SIZE = 160;
