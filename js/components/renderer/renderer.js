@@ -93,6 +93,8 @@
         const canvas = this.canvas();
 
         const iconSize = parseInt(this.iconSize());
+        const iconX = parseInt(this.iconX());
+        const iconY = parseInt(this.iconY());
         const iconColor = this.iconColor();
         const iconShadowColor = this.iconShadowColor();
         const iconShadowSize = parseInt(this.iconShadowSize());
@@ -194,7 +196,7 @@
                 result.unshift(colorFrom.toCSS());
                 
                 for(var i = result.length - 1; i >= 0; i--) {
-                    images.unshift(new Promise((function (width, height, size, i, svg, result, global, resolve) {
+                    images.unshift(new Promise((function (width, height, size, i, svg, result, global, paddingX, paddingY, resolve) {
                         svg.style.fill = result[i];
                         let svgUrl = global.URL.createObjectURL(new Blob([ svg.outerHTML ], { type: "image/svg+xml;charset=utf-8" }))
 
@@ -203,13 +205,13 @@
                             global.URL.revokeObjectURL(url);
                             resolve({
                                 img: this,
-                                x: ((width - size) / 2) + i + 1,
-                                y: ((height - size) / 2)  + i + 1
+                                x: (((width - size) / 2) + i + 1) + paddingX,
+                                y: (((height - size) / 2)  + i + 1) + paddingY
                             });
                         }).bind(img, width, height, size, i, svgUrl);
                         
                         img.src = svgUrl;
-                    }).bind(this, backgroundWidth, backgroundHeight, iconSize, i, iconSvgNode, result, global)));
+                    }).bind(this, backgroundWidth, backgroundHeight, iconSize, i, iconSvgNode, result, global, iconX, iconY)));
                 }
             }
 
@@ -219,14 +221,14 @@
                 let iconSvgUrl = global.URL.createObjectURL(new Blob([ iconSvgNode.outerHTML ], { type: "image/svg+xml;charset=utf-8" }))
 
                 let img = new Image();
-                img.onload = (function (width, height, size, url) {
+                img.onload = (function (width, height, size, url, paddingX, paddingY) {
                     global.URL.revokeObjectURL(url);
                     resolve({
                         img: this,
-                        x: (width - size) / 2,
-                        y: (height - size) / 2
+                        x: ((width - size) / 2) + paddingX,
+                        y: ((height - size) / 2) + paddingY
                     });
-                }).bind(img, backgroundWidth, backgroundHeight, iconSize, iconSvgUrl);
+                }).bind(img, backgroundWidth, backgroundHeight, iconSize, iconSvgUrl, iconX, iconY);
                 img.src = iconSvgUrl;
             }));
 
