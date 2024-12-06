@@ -69,7 +69,7 @@
 
     //#region [ Methods : Static ]
 
-    Logo.SHOW_GUIDING_LINES = true;
+    Logo.SHOW_GUIDING_LINES = false;
     Logo.GUIDING_SIZE = 200;
     Logo.ICON_SIZE = 240;
     Logo.ICON_X = 0;
