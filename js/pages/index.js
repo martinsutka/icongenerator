@@ -4,7 +4,8 @@ define([
     "material-components-web",
     "msu/models/Logo",
     "msu/bindings/datavalue",
-    "msu/bindings/autoselect"
+    "msu/bindings/autoselect",
+    "msu/polyfills/canvas.textPath"
 ], (ko, module, mdc, Logo) => {
     //#region [ Fields ]
 

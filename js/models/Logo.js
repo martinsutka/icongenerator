@@ -85,7 +85,7 @@
     Logo.BADGE_COLOR = "#ffffff";
     Logo.BADGE_BACKGROUND_COLOR = "#fe655c";
     Logo.BADGE_TEXT = "";
-    Logo.BADGE_FONT = "700 20px Arial";
+    Logo.BADGE_FONT = "700 30px Arial";
     Logo.BADGE_SIZE = 80;
 
     //#endregion
