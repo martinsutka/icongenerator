@@ -17,7 +17,7 @@
         this.showGuidingLines = ko.isObservable(args.showGuidingLines) ? args.showGuidingLines : ko.observable(Logo.SHOW_GUIDING_LINES);
         this.size = ko.isObservable(args.size) ? args.size : ko.observable(Logo.ICON_SIZE);
         this.color = ko.isObservable(args.color) ? args.color : ko.observable(Logo.ICON_COLOR);
-        this.shadowColor = ko.isObservable(args.shadowColor) ? args.shadowColor : ko.observable("#000000");
+        this.shadowColor = ko.isObservable(args.shadowColor) ? args.shadowColor : ko.observable(Logo.ICON_SHADOW_COLOR);
         this.shadowSize = ko.isObservable(args.shadowSize) ? args.shadowSize : ko.observable(160);
         this.shadowIntensity = ko.isObservable(args.shadowIntensity) ? args.shadowIntensity : ko.observable(15);
         this.svg = ko.isObservable(args.svg) ? args.svg : ko.observable("");
