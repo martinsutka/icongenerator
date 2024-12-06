@@ -42,10 +42,10 @@
         this.backgroundShadowSize = ko.isObservable(args.backgroundShadowSize) ? args.backgroundShadowSize : ko.observable(Logo.BACKGROUND_SHADOW_SIZE);
         this.backgroundBorderRadius = ko.isObservable(args.backgroundBorderRadius) ? args.backgroundBorderRadius : ko.observable(Logo.BACKGROUND_BORDER_RADIUS);
 
-        this.badgeColor = ko.isObservable(args.badgeColor) ? args.badgeColor : ko.observable("#ffffff");
-        this.badgeBackgroundColor = ko.isObservable(args.badgeBackgroundColor) ? args.badgeBackgroundColor : ko.observable("#2196f3");
-        this.badgeText = ko.isObservable(args.badgeText) ? args.badgeText : ko.observable("");
-        this.badgeFont = ko.isObservable(args.badgeFont) ? args.badgeFont : ko.observable("700 20px Arial");
+        this.badgeColor = ko.isObservable(args.badgeColor) ? args.badgeColor : ko.observable(Logo.BADGE_COLOR);
+        this.badgeBackgroundColor = ko.isObservable(args.badgeBackgroundColor) ? args.badgeBackgroundColor : ko.observable(Logo.BADGE_BACKGROUND_COLOR);
+        this.badgeText = ko.isObservable(args.badgeText) ? args.badgeText : ko.observable(Logo.BADGE_TEXT);
+        this.badgeFont = ko.isObservable(args.badgeFont) ? args.badgeFont : ko.observable(Logo.BADGE_FONT);
 
         this._onRenderSubscribe = ko.computed(this._onRender, this).extend({ rateLimit: { timeout: 500, method: "notifyWhenChangesStop" }});
     };

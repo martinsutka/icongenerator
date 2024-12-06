@@ -1,8 +1,9 @@
 ﻿define([
     "text!./badge.html",
     "knockout",
-    "material-components-web"
-], (view, ko, mdc) => {
+    "material-components-web",
+    "msu/models/Logo"
+], (view, ko, mdc, Logo) => {
     //#region [ Constructor ]
 
     /**
@@ -13,10 +14,10 @@
     let Badge = function (args = {}) {
         console.debug("Badge()");
 
-        this.color = ko.isObservable(args.color) ? args.color : ko.observable("#ffffff");
-        this.backgroundColor = ko.isObservable(args.backgroundColor) ? args.backgroundColor : ko.observable("#2196f3");
-        this.text = ko.isObservable(args.text) ? args.text : ko.observable("");
-        this.font = ko.isObservable(args.font) ? args.font : ko.observable("700 20px Arial");
+        this.color = ko.isObservable(args.color) ? args.color : ko.observable(Logo.BADGE_COLOR);
+        this.backgroundColor = ko.isObservable(args.backgroundColor) ? args.backgroundColor : ko.observable(Logo.BADGE_BACKGROUND_COLOR);
+        this.text = ko.isObservable(args.text) ? args.text : ko.observable(Logo.BADGE_TEXT);
+        this.font = ko.isObservable(args.font) ? args.font : ko.observable(Logo.BADGE_FONT);
     };
 
     //#endregion
