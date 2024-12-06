@@ -239,6 +239,17 @@
             badgePromise.then(() => {
                 ctx.fillStyle = badgeBackgroundColor;
                 Renderer.roundRect(ctx, 0, backgroundHeight - backgroundShadowSize - badgeSize, backgroundWidth, badgeSize, {}, true, false);
+
+                /*
+                if (ribbonText.length) {
+                    ctx.lineWidth = 0.01;
+                    ctx.font = ribbonFont;
+                    ctx.textBaseline = "middle";
+                    ctx.textAlign = "center";
+                    ctx.fillStyle = ribbonTextColor;
+                    ctx.textPath(ribbonText, [0, ribbonStart + (ribbonSize / 2), ribbonStart + (ribbonSize / 2), 0]);
+                }
+                */
             });
         }
     };
