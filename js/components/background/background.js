@@ -1,8 +1,9 @@
 ﻿define([
     "text!./background.html",
     "knockout",
-    "material-components-web"
-], (view, ko, mdc) => {
+    "material-components-web",
+    "msu/models/Logo"
+], (view, ko, mdc, Logo) => {
     //#region [ Constructor ]
 
     /**
@@ -13,15 +14,15 @@
     let Background = function (args = {}) {
         console.debug("Background()");
 
-        this.isTransparent = ko.isObservable(args.isTransparent) ? args.isTransparent : ko.observable(false);
-        this.width = ko.isObservable(args.width) ? args.width : ko.observable(380);
-        this.height = ko.isObservable(args.height) ? args.height : ko.observable(380);
-        this.color = ko.isObservable(args.color) ? args.color : ko.observable("#212121");
-        this.lightColor = ko.isObservable(args.lightColor) ? args.lightColor : ko.observable("#ffffff");
-        this.lightIntensity = ko.isObservable(args.lightIntensity) ? args.lightIntensity : ko.observable(0);
-        this.shadowColor = ko.isObservable(args.shadowColor) ? args.shadowColor : ko.observable("#000000");
-        this.shadowSize = ko.isObservable(args.shadowSize) ? args.shadowSize : ko.observable(0);
-        this.borderRadius = ko.isObservable(args.borderRadius) ? args.borderRadius : ko.observable(0);
+        this.isTransparent = ko.isObservable(args.isTransparent) ? args.isTransparent : ko.observable(Logo.IS_BACKGROUND_TRANSPARENT);
+        this.width = ko.isObservable(args.width) ? args.width : ko.observable(Logo.BACKGROUND_WIDTH);
+        this.height = ko.isObservable(args.height) ? args.height : ko.observable(Logo.BACKGROUND_HEIGHT);
+        this.color = ko.isObservable(args.color) ? args.color : ko.observable(Logo.BACKGROUND_COLOR);
+        this.lightColor = ko.isObservable(args.lightColor) ? args.lightColor : ko.observable(Logo.BACKGROUND_LIGHT_COLOR);
+        this.lightIntensity = ko.isObservable(args.lightIntensity) ? args.lightIntensity : ko.observable(Logo.BACKGROUND_LIGHT_INTENSITY);
+        this.shadowColor = ko.isObservable(args.shadowColor) ? args.shadowColor : ko.observable(Logo.BACKGROUND_SHADOW_COLOR);
+        this.shadowSize = ko.isObservable(args.shadowSize) ? args.shadowSize : ko.observable(Logo.BACKGROUND_SHADOW_SIZE);
+        this.borderRadius = ko.isObservable(args.borderRadius) ? args.borderRadius : ko.observable(Logo.BACKGROUND_BORDER_RADIUS);
     };
 
     //#endregion

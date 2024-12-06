@@ -32,15 +32,15 @@
         this.iconShadowIntensity = ko.isObservable(args.iconShadowIntensity) ? args.iconShadowIntensity : ko.observable(Logo.ICON_SHADOW_INTENSITY);
         this.iconSvg = ko.isObservable(args.iconSvg) ? args.iconSvg : ko.observable(Logo.ICON_SVG);
         
-        this.isBackgroundTransparent = ko.isObservable(args.isBackgroundTransparent) ? args.isBackgroundTransparent : ko.observable(false);
-        this.backgroundWidth = ko.isObservable(args.backgroundWidth) ? args.backgroundWidth : ko.observable(380);
-        this.backgroundHeight = ko.isObservable(args.backgroundHeight) ? args.backgroundHeight : ko.observable(380);
-        this.backgroundColor = ko.isObservable(args.backgroundColor) ? args.backgroundColor : ko.observable("#212121");
-        this.backgroundLightColor = ko.isObservable(args.backgroundLightColor) ? args.backgroundLightColor : ko.observable("#ffffff");
-        this.backgroundLightIntensity = ko.isObservable(args.backgroundLightIntensity) ? args.backgroundLightIntensity : ko.observable(0);
-        this.backgroundShadowColor = ko.isObservable(args.backgroundShadowColor) ? args.backgroundShadowColor : ko.observable("#000000");
-        this.backgroundShadowSize = ko.isObservable(args.backgroundShadowSize) ? args.backgroundShadowSize : ko.observable(0);
-        this.backgroundBorderRadius = ko.isObservable(args.backgroundBorderRadius) ? args.backgroundBorderRadius : ko.observable(0);
+        this.isBackgroundTransparent = ko.isObservable(args.isBackgroundTransparent) ? args.isBackgroundTransparent : ko.observable(Logo.IS_BACKGROUND_TRANSPARENT);
+        this.backgroundWidth = ko.isObservable(args.backgroundWidth) ? args.backgroundWidth : ko.observable(Logo.BACKGROUND_WIDTH);
+        this.backgroundHeight = ko.isObservable(args.backgroundHeight) ? args.backgroundHeight : ko.observable(Logo.BACKGROUND_HEIGHT);
+        this.backgroundColor = ko.isObservable(args.backgroundColor) ? args.backgroundColor : ko.observable(Logo.BACKGROUND_COLOR);
+        this.backgroundLightColor = ko.isObservable(args.backgroundLightColor) ? args.backgroundLightColor : ko.observable(Logo.BACKGROUND_LIGHT_COLOR);
+        this.backgroundLightIntensity = ko.isObservable(args.backgroundLightIntensity) ? args.backgroundLightIntensity : ko.observable(Logo.BACKGROUND_LIGHT_INTENSITY);
+        this.backgroundShadowColor = ko.isObservable(args.backgroundShadowColor) ? args.backgroundShadowColor : ko.observable(Logo.BACKGROUND_SHADOW_COLOR);
+        this.backgroundShadowSize = ko.isObservable(args.backgroundShadowSize) ? args.backgroundShadowSize : ko.observable(Logo.BACKGROUND_SHADOW_SIZE);
+        this.backgroundBorderRadius = ko.isObservable(args.backgroundBorderRadius) ? args.backgroundBorderRadius : ko.observable(Logo.BACKGROUND_BORDER_RADIUS);
 
         this.badgeColor = ko.isObservable(args.badgeColor) ? args.badgeColor : ko.observable("#ffffff");
         this.badgeBackgroundColor = ko.isObservable(args.badgeBackgroundColor) ? args.badgeBackgroundColor : ko.observable("#2196f3");
