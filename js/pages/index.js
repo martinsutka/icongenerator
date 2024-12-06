@@ -25,6 +25,7 @@ define([
     ko.components.register("msu-renderer", { require: "msu/components/renderer/renderer" });
     ko.components.register("msu-templateselector", { require: "msu/components/templateselector/templateselector" });
     ko.components.register("msu-tools", { require: "msu/components/tools/tools" });
+    ko.components.register("msu-guidinglines", { require: "msu/components/guidinglines/guidinglines" });
 
     //#endregion
 

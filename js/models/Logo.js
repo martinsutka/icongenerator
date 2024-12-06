@@ -16,6 +16,7 @@
         this.tab = utils.parseInt(args, "tab", 0);
 
         this.showGuidingLines = utils.parseBool(args, "showGuidingLines", Logo.SHOW_GUIDING_LINES);
+        this.guidingSize = utils.parseInt(args, "guidingSize", Logo.GUIDING_SIZE = 200);
 
         this.iconSize = utils.parseInt(args, "iconSize", Logo.ICON_SIZE);
         this.iconColor = (args.iconColor || "").length === 7 ? ko.observable(args.iconColor) : ko.observable(Logo.ICON_COLOR);
@@ -67,6 +68,7 @@
     //#region [ Methods : Static ]
 
     Logo.SHOW_GUIDING_LINES = true;
+    Logo.GUIDING_SIZE = 200;
     Logo.ICON_SIZE = 240;
     Logo.ICON_COLOR = "#ffffff";
     Logo.ICON_SHADOW_COLOR = "#000000";

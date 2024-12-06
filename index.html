@@ -39,7 +39,7 @@
             </div>
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
                 <div class="mdc-layout-grid__inner">
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 guidinglines-wrapper">
                         <msu-renderer params="iconSize: iconSize,
                                               iconColor: iconColor,
                                               iconShadowColor: iconShadowColor,
@@ -60,6 +60,11 @@
                                               badgeText: badgeText,
                                               badgeFont: badgeFont,
                                               badgeSize: badgeSize"></msu-renderer>
+                        <msu-guidinglines params="isVisible: showGuidingLines,
+                                                  size: guidingSize,
+                                                  iconSize: iconSize,
+                                                  backgroundWidth: backgroundWidth,
+                                                  backgroundHeight: backgroundHeight"></msu-guidinglines>
                     </div>
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
                         <msu-toolbar params="shareCallback: share.bind($root),
@@ -75,6 +80,7 @@
                     <!-- ko if: tab() === 0 -->
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
                         <msu-icon params="showGuidingLines: showGuidingLines,
+                                          guidingSize: guidingSize,
                                           color: iconColor,
                                           size: iconSize,
                                           shadowColor: iconShadowColor,
