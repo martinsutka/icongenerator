@@ -33,11 +33,12 @@
         this.backgroundShadowColor = (args.backgroundShadowColor || "").length === 7 ? ko.observable(args.backgroundShadowColor) : ko.observable(Logo.BACKGROUND_SHADOW_COLOR);
         this.backgroundShadowSize = utils.parseInt(args, "backgroundShadowSize", Logo.BACKGROUND_SHADOW_SIZE);
         this.backgroundBorderRadius = utils.parseInt(args, "backgroundBorderRadius", Logo.BACKGROUND_BORDER_RADIUS);
-
+        
         this.badgeColor = (args.badgeColor || "").length === 7 ? ko.observable(args.badgeColor) : ko.observable(Logo.BADGE_COLOR);
         this.badgeBackgroundColor = (args.badgeBackgroundColor || "").length === 7 ? ko.observable(args.badgeBackgroundColor) : ko.observable(Logo.BADGE_BACKGROUND_COLOR);
         this.badgeText = (args.badgeText || "").length ? ko.observable(args.badgeText) : ko.observable(Logo.BADGE_TEXT);
         this.badgeFont = (args.badgeFont || "").length ? ko.observable(args.badgeFont) : ko.observable(Logo.BADGE_FONT);
+        this.badgeSize = utils.parseInt(args, "badgeSize", Logo.BADGE_SIZE);
     };
 
     //#endregion
@@ -82,9 +83,10 @@
     Logo.BACKGROUND_SHADOW_SIZE = 0;
     Logo.BACKGROUND_BORDER_RADIUS = 0;
     Logo.BADGE_COLOR = "#ffffff";
-    Logo.BADGE_BACKGROUND_COLOR = "#2196f3";
+    Logo.BADGE_BACKGROUND_COLOR = "#fe655c";
     Logo.BADGE_TEXT = "";
     Logo.BADGE_FONT = "700 20px Arial";
+    Logo.BADGE_SIZE = 80;
 
     //#endregion
 

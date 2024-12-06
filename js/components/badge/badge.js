@@ -18,6 +18,7 @@
         this.backgroundColor = ko.isObservable(args.backgroundColor) ? args.backgroundColor : ko.observable(Logo.BADGE_BACKGROUND_COLOR);
         this.text = ko.isObservable(args.text) ? args.text : ko.observable(Logo.BADGE_TEXT);
         this.font = ko.isObservable(args.font) ? args.font : ko.observable(Logo.BADGE_FONT);
+        this.size = ko.isObservable(args.size) ? args.size : ko.observable(Logo.BADGE_SIZE);
     };
 
     //#endregion

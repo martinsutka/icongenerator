@@ -46,6 +46,7 @@
         this.badgeBackgroundColor = ko.isObservable(args.badgeBackgroundColor) ? args.badgeBackgroundColor : ko.observable(Logo.BADGE_BACKGROUND_COLOR);
         this.badgeText = ko.isObservable(args.badgeText) ? args.badgeText : ko.observable(Logo.BADGE_TEXT);
         this.badgeFont = ko.isObservable(args.badgeFont) ? args.badgeFont : ko.observable(Logo.BADGE_FONT);
+        this.badgeSize = ko.isObservable(args.badgeSize) ? args.badgeSize : ko.observable(Logo.BADGE_SIZE);
 
         this._onRenderSubscribe = ko.computed(this._onRender, this).extend({ rateLimit: { timeout: 500, method: "notifyWhenChangesStop" }});
     };
@@ -110,6 +111,7 @@
         const badgeBackgroundColor = this.badgeBackgroundColor();
         const badgeText = this.badgeText();
         const badgeFont = this.badgeFont();
+        const badgeSize = parseInt(this.badgeSize());
 
         if (!canvas) {
             return;
@@ -146,11 +148,14 @@
         // Draw background
         Renderer.roundRect(ctx, 0 + backgroundShadowSize, 0 + backgroundShadowSize, backgroundWidth - (2 * backgroundShadowSize), backgroundHeight - (2 * backgroundShadowSize), backgroundBorderRadius > 0 ? backgroundBorderRadius : {}, !isBackgroundTransparent, false);
         ctx.clip();
-        
+
         // Clear shadow
         ctx.shadowBlur = 0;
 
-        // Set svg
+        // Badge must be rendered in the end
+        let badgePromise = Promise.resolve();
+
+        // Render svg
         let iconSvgNode = new DOMParser().parseFromString(iconSvg, "text/html").querySelector("svg");
         if (iconSvgNode) {
             // Set size
@@ -224,9 +229,17 @@
             }));
 
             // Wait until all images are rendered
-            Promise.all(images)
+            badgePromise = Promise.all(images)
                 .then((images) => images.reverse().forEach((i) => ctx.drawImage(i.img, i.x, i.y)))
                 .catch(console.error);
+        }
+
+        // Render badge
+        if (badgeText) {
+            badgePromise.then(() => {
+                ctx.fillStyle = badgeBackgroundColor;
+                Renderer.roundRect(ctx, 0, backgroundHeight - backgroundShadowSize - badgeSize, backgroundWidth, badgeSize, {}, true, false);
+            });
         }
     };
 
