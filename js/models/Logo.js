@@ -19,6 +19,8 @@
         this.guidingSize = utils.parseInt(args, "guidingSize", Logo.GUIDING_SIZE = 200);
 
         this.iconSize = utils.parseInt(args, "iconSize", Logo.ICON_SIZE);
+        this.iconX = utils.parseInt(args, "iconX", Logo.ICON_X);
+        this.iconY = utils.parseInt(args, "iconY", Logo.ICON_Y);
         this.iconColor = (args.iconColor || "").length === 7 ? ko.observable(args.iconColor) : ko.observable(Logo.ICON_COLOR);
         this.iconShadowColor = (args.iconShadowColor || "").length === 7 ? ko.observable(args.iconShadowColor) : ko.observable(Logo.ICON_SHADOW_COLOR);
         this.iconShadowSize = utils.parseInt(args, "iconShadowSize", Logo.ICON_SHADOW_SIZE);
@@ -70,6 +72,8 @@
     Logo.SHOW_GUIDING_LINES = true;
     Logo.GUIDING_SIZE = 200;
     Logo.ICON_SIZE = 240;
+    Logo.ICON_X = 0;
+    Logo.ICON_Y = 0;
     Logo.ICON_COLOR = "#ffffff";
     Logo.ICON_SHADOW_COLOR = "#000000";
     Logo.ICON_SHADOW_SIZE = 160;
