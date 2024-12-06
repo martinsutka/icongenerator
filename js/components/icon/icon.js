@@ -18,9 +18,9 @@
         this.size = ko.isObservable(args.size) ? args.size : ko.observable(Logo.ICON_SIZE);
         this.color = ko.isObservable(args.color) ? args.color : ko.observable(Logo.ICON_COLOR);
         this.shadowColor = ko.isObservable(args.shadowColor) ? args.shadowColor : ko.observable(Logo.ICON_SHADOW_COLOR);
-        this.shadowSize = ko.isObservable(args.shadowSize) ? args.shadowSize : ko.observable(160);
-        this.shadowIntensity = ko.isObservable(args.shadowIntensity) ? args.shadowIntensity : ko.observable(15);
-        this.svg = ko.isObservable(args.svg) ? args.svg : ko.observable("");
+        this.shadowSize = ko.isObservable(args.shadowSize) ? args.shadowSize : ko.observable(Logo.ICON_SHADOW_SIZE);
+        this.shadowIntensity = ko.isObservable(args.shadowIntensity) ? args.shadowIntensity : ko.observable(Logo.ICON_SHADOW_INTENSITY);
+        this.svg = ko.isObservable(args.svg) ? args.svg : ko.observable(Logo.ICON_SVG);
     };
 
     //#endregion
