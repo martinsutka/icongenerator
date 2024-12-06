@@ -145,7 +145,8 @@
 
         // Draw background
         Renderer.roundRect(ctx, 0 + backgroundShadowSize, 0 + backgroundShadowSize, backgroundWidth - (2 * backgroundShadowSize), backgroundHeight - (2 * backgroundShadowSize), backgroundBorderRadius > 0 ? backgroundBorderRadius : {}, !isBackgroundTransparent, false);
-
+        ctx.clip();
+        
         // Clear shadow
         ctx.shadowBlur = 0;
 
