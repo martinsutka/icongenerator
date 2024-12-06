@@ -3,8 +3,9 @@
     "css!./renderer.css",
     "knockout",
     "material-components-web",
-    "less"
-], (view, css, ko, mdc, less) => {
+    "less",
+    "msu/models/Logo"
+], (view, css, ko, mdc, less, Logo) => {
     //#region [ Fields ]
     
     const global = (function() { return this; })();
@@ -40,6 +41,11 @@
         this.backgroundShadowColor = ko.isObservable(args.backgroundShadowColor) ? args.backgroundShadowColor : ko.observable("#000000");
         this.backgroundShadowSize = ko.isObservable(args.backgroundShadowSize) ? args.backgroundShadowSize : ko.observable(0);
         this.backgroundBorderRadius = ko.isObservable(args.backgroundBorderRadius) ? args.backgroundBorderRadius : ko.observable(0);
+
+        this.badgeColor = ko.isObservable(args.badgeColor) ? args.badgeColor : ko.observable("#ffffff");
+        this.badgeBackgroundColor = ko.isObservable(args.badgeBackgroundColor) ? args.badgeBackgroundColor : ko.observable("#2196f3");
+        this.badgeText = ko.isObservable(args.badgeText) ? args.badgeText : ko.observable("");
+        this.badgeFont = ko.isObservable(args.badgeFont) ? args.badgeFont : ko.observable("700 20px Arial");
 
         this._onRenderSubscribe = ko.computed(this._onRender, this).extend({ rateLimit: { timeout: 500, method: "notifyWhenChangesStop" }});
     };
@@ -100,6 +106,11 @@
         const backgroundShadowSize = parseInt(this.backgroundShadowSize());
         const backgroundBorderRadius = parseInt(this.backgroundBorderRadius());
         
+        const badgeColor = this.badgeColor();
+        const badgeBackgroundColor = this.badgeBackgroundColor();
+        const badgeText = this.badgeText();
+        const badgeFont = this.badgeFont();
+
         if (!canvas) {
             return;
         }

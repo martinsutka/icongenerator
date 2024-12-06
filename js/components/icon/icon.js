@@ -1,8 +1,9 @@
 ﻿define([
     "text!./icon.html",
     "knockout",
-    "material-components-web"
-], (view, ko, mdc) => {
+    "material-components-web",
+    "msu/models/Logo"
+], (view, ko, mdc, Logo) => {
     //#region [ Constructor ]
 
     /**
@@ -13,7 +14,7 @@
     let Icon = function (args = {}) {
         console.debug("Icon()");
 
-        this.showGuidingLines = ko.isObservable(args.showGuidingLines) ? args.showGuidingLines : ko.observable(true);
+        this.showGuidingLines = ko.isObservable(args.showGuidingLines) ? args.showGuidingLines : ko.observable(Logo.SHOW_GUIDING_LINES);
         this.color = ko.isObservable(args.color) ? args.color : ko.observable("#ffffff");
         this.size = ko.isObservable(args.size) ? args.size : ko.observable(280);
         this.shadowColor = ko.isObservable(args.shadowColor) ? args.shadowColor : ko.observable("#000000");
