@@ -26,6 +26,9 @@
 
         this.iconSize = ko.isObservable(args.iconSize) ? args.iconSize : ko.observable(280);
         this.iconColor = ko.isObservable(args.iconColor) ? args.iconColor : ko.observable("#ffffff");
+        this.iconShadowColor = ko.isObservable(args.iconShadowColor) ? args.iconShadowColor : ko.observable("#000000");
+        this.iconShadowSize = ko.isObservable(args.iconShadowSize) ? args.iconShadowSize : ko.observable(160);
+        this.iconShadowIntensity = ko.isObservable(args.iconShadowIntensity) ? args.iconShadowIntensity : ko.observable(15);
         this.iconSvg = ko.isObservable(args.iconSvg) ? args.iconSvg : ko.observable('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2M7 9.5C7 8.7 7.7 8 8.5 8s1.5.7 1.5 1.5S9.3 11 8.5 11S7 10.3 7 9.5m5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81M15.5 11c-.8 0-1.5-.7-1.5-1.5S14.7 8 15.5 8s1.5.7 1.5 1.5s-.7 1.5-1.5 1.5"/></svg>');
         
         this.isBackgroundTransparent = ko.isObservable(args.isBackgroundTransparent) ? args.isBackgroundTransparent : ko.observable(false);
@@ -38,7 +41,7 @@
         this.backgroundShadowSize = ko.isObservable(args.backgroundShadowSize) ? args.backgroundShadowSize : ko.observable(0);
         this.backgroundBorderRadius = ko.isObservable(args.backgroundBorderRadius) ? args.backgroundBorderRadius : ko.observable(0);
 
-        this._onRenderSubscribe = ko.computed(this._onRender, this);
+        this._onRenderSubscribe = ko.computed(this._onRender, this).extend({ rateLimit: { timeout: 500, method: "notifyWhenChangesStop" }});
     };
 
     //#endregion
@@ -82,6 +85,9 @@
 
         const iconSize = parseInt(this.iconSize());
         const iconColor = this.iconColor();
+        const iconShadowColor = this.iconShadowColor();
+        const iconShadowSize = parseInt(this.iconShadowSize());
+        const iconShadowIntensity = parseInt(this.iconShadowIntensity());
         const iconSvg = this.iconSvg();
 
         const isBackgroundTransparent = this.isBackgroundTransparent();
@@ -147,6 +153,46 @@
 
             // Prepare images for rendering
             const images = [];
+
+            // Draw shadow
+            if (iconShadowSize > 0) {
+                // Calculate shadow filter
+                const colorTo = isBackgroundTransparent ? less.color("ffffff", 0) : less.color(backgroundColor.substr(1));
+                const colorFrom = mix(less.color(iconShadowColor.substr(1)), colorTo, { value: iconShadowIntensity });
+
+                let length = iconShadowSize;
+                let total = length;
+                let amount = null;
+                let mixed = null;
+                let result = [];
+
+                while (length > 1) {
+                    amount = 100 - ((length / total) * 100);
+                    mixed = mix(colorFrom, colorTo, { value: amount });
+                    result.unshift(mixed.toCSS());
+                    length--;
+                }
+                result.unshift(colorFrom.toCSS());
+                
+                for(var i = result.length - 1; i >= 0; i--) {
+                    images.unshift(new Promise((function (width, height, size, i, svg, result, global, resolve) {
+                        svg.style.fill = result[i];
+                        let svgUrl = global.URL.createObjectURL(new Blob([ svg.outerHTML ], { type: "image/svg+xml;charset=utf-8" }))
+
+                        let img = new Image();
+                        img.onload = (function (width, height, size, i, url) {
+                            global.URL.revokeObjectURL(url);
+                            resolve({
+                                img: this,
+                                x: ((width - size) / 2) + i + 1,
+                                y: ((height - size) / 2)  + i + 1
+                            });
+                        }).bind(img, width, height, size, i, svgUrl);
+                        
+                        img.src = svgUrl;
+                    }).bind(this, backgroundWidth, backgroundHeight, iconSize, i, iconSvgNode, result, global)));
+                }
+            }
 
             // Draw svg itself
             images.unshift(new Promise((resolve) => {
