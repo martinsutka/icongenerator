@@ -73,6 +73,39 @@
         action();
     };
 
+
+    /**
+     * Converts current logo representation to json.
+     */
+    Logo.prototype.toJson = function() {
+        return {
+            showGuidingLines: this.showGuidingLines(),
+            guidingSize: this.guidingSize(),
+            iconSize: this.iconSize(),
+            iconX: this.iconX(),
+            iconY: this.iconY(),
+            iconColor: this.iconColor(),
+            iconShadowColor: this.iconShadowColor(),
+            iconShadowSize: this.iconShadowSize(),
+            iconShadowIntensity: this.iconShadowIntensity(),
+            iconSvg: this.iconSvg(),
+            isBackgroundTransparent: this.isBackgroundTransparent(),
+            backgroundWidth: this.backgroundWidth(),
+            backgroundHeight: this.backgroundHeight(),
+            backgroundColor: this.backgroundColor(),
+            backgroundLightColor: this.backgroundLightColor(),
+            backgroundLightIntensity: this.backgroundLightIntensity(),
+            backgroundShadowColor: this.backgroundShadowColor(),
+            backgroundShadowSize: this.backgroundShadowSize(),
+            backgroundBorderRadius: this.backgroundBorderRadius(),            
+            badgeColor: this.badgeColor(),
+            badgeBackgroundColor: this.badgeBackgroundColor(),
+            badgeText: this.badgeText(),
+            badgeFont: this.badgeFont(),
+            badgeSize: this.badgeSize()
+        };
+    };
+
     //#endregion
 
 

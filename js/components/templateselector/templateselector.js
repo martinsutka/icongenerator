@@ -23,6 +23,8 @@
 
         this.items = cnf.items || [];
         this.selected = ko.observable();
+
+        this._selectedOnChangeSubscribe = null;
     };
 
     //#endregion
@@ -40,6 +42,8 @@
         const root = node.firstElementChild;
         const component = new mdc.textField.MDCTextField(root);
         node.replaceWith(root);
+
+        this._selectedOnChangeSubscribe = this.selected.subscribe(this._selectedOnChange, this);
     };
 
 
@@ -48,6 +52,22 @@
      */
     TemplateSelector.prototype.dispose = function () {
         console.debug("~TemplateSelector()");
+
+        this._selectedOnChangeSubscribe.dispose();
+    };
+
+    //#endregion
+
+
+    //#region [ Methods : Private ]
+
+    /**
+     * Event handler for the selected item change event.
+     * 
+     * @param {number} value Currently selected item.
+     */
+    TemplateSelector.prototype._selectedOnChange = function(value) {
+        console.warn("_selectedOnChange: ", value);
     };
 
     //#endregion
