@@ -199,6 +199,7 @@
 
             // Remove default fill color
             iconSvgNode.querySelectorAll("[fill='currentColor']").forEach((el) => el.removeAttribute("fill"));
+            iconSvgNode.querySelectorAll("[fill-opacity='0']").forEach((el) => el.removeAttribute("fill-opacity"));
 
             // Remove none fill color
             iconSvgNode.querySelectorAll("g[fill='none']").forEach((el) => el.removeAttribute("fill"));
