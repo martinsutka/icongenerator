@@ -62,8 +62,8 @@ require({
                 backgroundLightIntensity: 0,
                 backgroundShadowSize: 0,
                 backgroundBorderRadius: 0,
-                badgeFont: "700 30px Arial",
-                badgeSize: 80
+                badgeFont: "300 12px Arial",
+                badgeSize: 30
             }]
         }
     }

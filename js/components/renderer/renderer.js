@@ -275,9 +275,11 @@
                 ctx.lineWidth = 0.01;
                 ctx.font = badgeFont;
                 ctx.textBaseline = "middle";
-                ctx.textAlign = "center";
+                //ctx.textAlign = "center";
                 ctx.fillStyle = badgeColor;
-                ctx.textPath(badgeText, [0, backgroundHeight - backgroundShadowSize - (badgeSize / 2), backgroundWidth - backgroundShadowSize, backgroundHeight - backgroundShadowSize - (badgeSize / 2)]);
+                //ctx.textPath(badgeText, [0, backgroundHeight - backgroundShadowSize - (badgeSize / 2), backgroundWidth - backgroundShadowSize, backgroundHeight - backgroundShadowSize - (badgeSize / 2)]);
+                let badgeTextWidth = ctx.measureText(badgeText).width;
+                ctx.fillText(badgeText, (backgroundWidth / 2) - (badgeTextWidth / 2), backgroundHeight - backgroundShadowSize - (badgeSize / 2));
             });
         }
     };
