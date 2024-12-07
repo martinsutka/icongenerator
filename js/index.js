@@ -24,6 +24,9 @@ require({
                 text: "Apple touch icon",
                 value: 1
             }, {
+                text: "Azure DevOps Extension Preview Image",
+                value: 4
+            }, {
                 text: "Windows tile",
                 value: 2
             }, {
@@ -87,6 +90,32 @@ require({
                 isBadgeTransparent: true,
                 badgeFont: "300 16px Arial",
                 badgeSize: 60
+            }, {
+                showGuides: true,
+                guidesSize: 100,
+                guidesX: 0,
+                guidesY: 0,
+                iconSize: 112,
+                iconX: 0,
+                iconY: 0,
+                iconColor: "#ffffff",
+                iconShadowColor: "#000000",
+                iconShadowSize: 60,
+                iconShadowIntensity: 15,
+                isBackgroundTransparent: false,
+                backgroundWidth: 160,
+                backgroundHeight: 160,
+                backgroundColor: "#50b848",
+                backgroundLightColor: "#ffffff",
+                backgroundLightIntensity: 30,
+                backgroundShadowColor: "#000000",
+                backgroundShadowSize: 5,
+                backgroundBorderRadius: 30,
+                isBadgeTransparent: false,
+                badgeColor: "#ffffff",
+                badgeBackgroundColor: "#a0c598",
+                badgeFont: "700 16px Arial",
+                badgeSize: 24
             }]
         }
     }
