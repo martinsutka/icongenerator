@@ -75,6 +75,23 @@
 
 
     /**
+     * Converts input JSON object and applies all its properties to the current logo instance.
+     * 
+     * @param {object} obj Logo representation.
+     */
+    Logo.prototype.fromJson = function(obj = {}) {
+        Object.keys(obj).forEach((property) => {
+            if (!ko.isObservable(this[property])) {
+                return;
+            }
+
+            console.debug(`Setting ${property} to value '${obj[property]}'.`);
+            this[property](obj[property]);
+        });
+    };
+
+
+    /**
      * Converts current logo representation to json.
      */
     Logo.prototype.toJson = function() {

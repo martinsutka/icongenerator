@@ -23,6 +23,7 @@
 
         this.items = cnf.items || [];
         this.selected = ko.observable();
+        this.logo = args.logo;
 
         this._selectedOnChangeSubscribe = null;
     };
@@ -67,7 +68,17 @@
      * @param {number} value Currently selected item.
      */
     TemplateSelector.prototype._selectedOnChange = function(value) {
-        console.warn("_selectedOnChange: ", value);
+        if (!this.logo || !value) {
+            return;
+        }
+
+        const setting = cnf.settings[value - 1];
+
+        if (!setting) {
+            return;
+        }
+
+        this.logo.fromJson(setting);
     };
 
     //#endregion

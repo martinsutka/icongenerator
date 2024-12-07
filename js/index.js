@@ -29,6 +29,22 @@ require({
             }, {
                 text: "Windows tile wide",
                 value: 3
+            }],
+            settings: [{
+                guidingSize: 200,
+                iconSize: 240,
+                iconX: 0,
+                iconY: 0,
+                iconShadowSize: 160,
+                iconShadowIntensity: 15,
+                isBackgroundTransparent: false,
+                backgroundWidth: 380,
+                backgroundHeight: 380,
+                backgroundLightIntensity: 0,
+                backgroundShadowSize: 0,
+                backgroundBorderRadius: 0,
+                badgeFont: "700 30px Arial",
+                badgeSize: 80
             }]
         }
     }
