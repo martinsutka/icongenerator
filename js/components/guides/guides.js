@@ -15,7 +15,7 @@
         console.debug("Guides()");
 
         this.showGuidingLines = ko.isObservable(args.showGuidingLines) ? args.showGuidingLines : ko.observable(Logo.SHOW_GUIDING_LINES);
-        this.guidingSize = ko.isObservable(args.guidingSize) ? args.guidingSize : ko.observable(Logo.GUIDING_SIZE);
+        this.size = ko.isObservable(args.size) ? args.size : ko.observable(Logo.GUIDES_SIZE);
     };
 
     //#endregion

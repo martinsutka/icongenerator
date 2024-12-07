@@ -31,7 +31,7 @@ require({
                 value: 3
             }],
             settings: [{
-                guidingSize: 200,
+                guidesSize: 200,
                 iconSize: 240,
                 iconX: 0,
                 iconY: 0,
