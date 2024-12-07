@@ -31,6 +31,7 @@ require({
                 value: 3
             }],
             settings: [{
+                showGuides: true,
                 guidesSize: 200,
                 guidesX: 0,
                 guidesY: 0,
@@ -49,23 +50,24 @@ require({
                 badgeFont: "700 30px Arial",
                 badgeSize: 80
             }, {
-                guidesSize: 74,
+                showGuides: true,
+                guidesSize: 148,
                 guidesX: 0,
-                guidesY: -12,
-                iconSize: 84,
+                guidesY: -24,
+                iconSize: 168,
                 iconX: 0,
-                iconY: -10,
+                iconY: -22,
                 iconShadowSize: 0,
                 iconShadowIntensity: 15,
                 isBackgroundTransparent: false,
-                backgroundWidth: 150,
-                backgroundHeight: 150,
+                backgroundWidth: 300,
+                backgroundHeight: 300,
                 backgroundLightIntensity: 0,
                 backgroundShadowSize: 0,
                 backgroundBorderRadius: 0,
                 isBadgeTransparent: true,
-                badgeFont: "300 12px Arial",
-                badgeSize: 30
+                badgeFont: "300 16px Arial",
+                badgeSize: 60
             }]
         }
     }
