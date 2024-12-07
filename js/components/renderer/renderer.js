@@ -51,6 +51,10 @@
         this.badgeSize = ko.isObservable(args.badgeSize) ? args.badgeSize : ko.observable(Logo.BADGE_SIZE);
 
         this._onRenderSubscribe = ko.computed(this._onRender, this).extend({ rateLimit: { timeout: 500, method: "notifyWhenChangesStop" }});
+
+        if (typeof (args.downloadAction) === "function") {
+            args.downloadAction(this.download.bind(this));
+        }
     };
 
     //#endregion
@@ -69,6 +73,30 @@
         node.replaceWith(root);
 
         this.canvas(root);
+    };
+
+
+    /**
+     * Downloads the current image.
+     */
+    Renderer.prototype.download = function () {
+        const canvas = this.canvas();
+        if (!canvas) {
+            return;
+        }
+
+        canvas.toBlob((blob) => {
+            const url = global.URL.createObjectURL(blob);
+            const link = global.document.createElement("a");
+            link.download = "icongenerator.png";
+            link.style.opacity = "0";
+            link.style.position = "absolute";
+            link.href = url;
+            global.document.body.append(link);
+            link.click();
+            link.remove();
+            setTimeout(() => global.URL.revokeObjectURL(url), 1000);
+        });
     };
 
 

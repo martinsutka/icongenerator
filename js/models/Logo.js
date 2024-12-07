@@ -42,6 +42,10 @@
         this.badgeText = (args.badgeText || "").length ? ko.observable(args.badgeText) : ko.observable(Logo.BADGE_TEXT);
         this.badgeFont = (args.badgeFont || "").length ? ko.observable(args.badgeFont) : ko.observable(Logo.BADGE_FONT);
         this.badgeSize = utils.parseInt(args, "badgeSize", Logo.BADGE_SIZE);
+
+        this.renderer = {
+            downloadAction: ko.observable()
+        };
     };
 
     //#endregion
@@ -61,7 +65,12 @@
      * Downloads the logo as an png image.
      */
     Logo.prototype.download = function () {
-        console.warn("download %o", this);
+        const action = this.renderer.downloadAction();
+        if (typeof (action) !== "function") {
+            console.error("Logo : download() : Renderer download action is not defined.");
+            return;
+        }
+        action();
     };
 
     //#endregion
