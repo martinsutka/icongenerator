@@ -57,6 +57,7 @@
                                               backgroundShadowColor: backgroundShadowColor,
                                               backgroundShadowSize: backgroundShadowSize,
                                               backgroundBorderRadius: backgroundBorderRadius,
+                                              isBadgeTransparent: isBadgeTransparent,
                                               badgeColor: badgeColor,
                                               badgeBackgroundColor: badgeBackgroundColor,
                                               badgeText: badgeText,
@@ -109,7 +110,8 @@
                     <!-- /ko -->
                      <!-- ko if: tab() === 2 -->
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-                        <msu-badge params="color: badgeColor,
+                        <msu-badge params="isTransparent: isBadgeTransparent,
+                                           color: badgeColor,
                                            backgroundColor: badgeBackgroundColor,
                                            text: badgeText,
                                            font: badgeFont,

@@ -14,6 +14,7 @@
     let Badge = function (args = {}) {
         console.debug("Badge()");
 
+        this.isTransparent = ko.isObservable(args.isTransparent) ? args.isTransparent : ko.observable(Logo.IS_BADGE_TRANSPARENT);
         this.color = ko.isObservable(args.color) ? args.color : ko.observable(Logo.BADGE_COLOR);
         this.backgroundColor = ko.isObservable(args.backgroundColor) ? args.backgroundColor : ko.observable(Logo.BADGE_BACKGROUND_COLOR);
         this.text = ko.isObservable(args.text) ? args.text : ko.observable(Logo.BADGE_TEXT);

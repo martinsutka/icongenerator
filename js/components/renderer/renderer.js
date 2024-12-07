@@ -44,6 +44,7 @@
         this.backgroundShadowSize = ko.isObservable(args.backgroundShadowSize) ? args.backgroundShadowSize : ko.observable(Logo.BACKGROUND_SHADOW_SIZE);
         this.backgroundBorderRadius = ko.isObservable(args.backgroundBorderRadius) ? args.backgroundBorderRadius : ko.observable(Logo.BACKGROUND_BORDER_RADIUS);
 
+        this.isBadgeTransparent = ko.isObservable(args.isBadgeTransparent) ? args.isBadgeTransparent : ko.observable(Logo.IS_BADGE_TRANSPARENT);
         this.badgeColor = ko.isObservable(args.badgeColor) ? args.badgeColor : ko.observable(Logo.BADGE_COLOR);
         this.badgeBackgroundColor = ko.isObservable(args.badgeBackgroundColor) ? args.badgeBackgroundColor : ko.observable(Logo.BADGE_BACKGROUND_COLOR);
         this.badgeText = ko.isObservable(args.badgeText) ? args.badgeText : ko.observable(Logo.BADGE_TEXT);
@@ -139,6 +140,7 @@
         const backgroundShadowSize = parseInt(this.backgroundShadowSize());
         const backgroundBorderRadius = parseInt(this.backgroundBorderRadius());
         
+        const isBadgeTransparent = this.isBadgeTransparent();
         const badgeColor = this.badgeColor();
         const badgeBackgroundColor = this.badgeBackgroundColor();
         const badgeText = this.badgeText();
@@ -269,8 +271,10 @@
         // Render badge
         if (badgeText) {
             badgePromise.then(() => {
-                ctx.fillStyle = badgeBackgroundColor;
-                Renderer.roundRect(ctx, 0, backgroundHeight - backgroundShadowSize - badgeSize, backgroundWidth, badgeSize, {}, true, false);
+                if (!isBadgeTransparent) {
+                    ctx.fillStyle = badgeBackgroundColor;
+                    Renderer.roundRect(ctx, 0, backgroundHeight - backgroundShadowSize - badgeSize, backgroundWidth, badgeSize, {}, true, false);
+                }
 
                 ctx.lineWidth = 0.01;
                 ctx.font = badgeFont;

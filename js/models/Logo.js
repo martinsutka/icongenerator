@@ -39,6 +39,7 @@
         this.backgroundShadowSize = utils.parseInt(args, "backgroundShadowSize", Logo.BACKGROUND_SHADOW_SIZE);
         this.backgroundBorderRadius = utils.parseInt(args, "backgroundBorderRadius", Logo.BACKGROUND_BORDER_RADIUS);
         
+        this.isBadgeTransparent = utils.parseBool(args, "isBadgeTransparent", Logo.IS_BADGE_TRANSPARENT);
         this.badgeColor = (args.badgeColor || "").length === 7 ? ko.observable(args.badgeColor) : ko.observable(Logo.BADGE_COLOR);
         this.badgeBackgroundColor = (args.badgeBackgroundColor || "").length === 7 ? ko.observable(args.badgeBackgroundColor) : ko.observable(Logo.BADGE_BACKGROUND_COLOR);
         this.badgeText = (args.badgeText || "").length ? ko.observable(args.badgeText) : ko.observable(Logo.BADGE_TEXT);
@@ -119,6 +120,7 @@
             backgroundShadowColor: this.backgroundShadowColor(),
             backgroundShadowSize: parseInt(this.backgroundShadowSize()),
             backgroundBorderRadius: parseInt(this.backgroundBorderRadius()),
+            isBadgeTransparent: this.isBadgeTransparent(),
             badgeColor: this.badgeColor(),
             badgeBackgroundColor: this.badgeBackgroundColor(),
             badgeText: this.badgeText(),
@@ -153,6 +155,7 @@
     Logo.BACKGROUND_SHADOW_COLOR = "#000000";
     Logo.BACKGROUND_SHADOW_SIZE = 0;
     Logo.BACKGROUND_BORDER_RADIUS = 0;
+    Logo.IS_BADGE_TRANSPARENT = false;
     Logo.BADGE_COLOR = "#ffffff";
     Logo.BADGE_BACKGROUND_COLOR = "#fe655c";
     Logo.BADGE_TEXT = "";
