@@ -1,7 +1,9 @@
 ﻿<div class="guidinglines"
      data-bind="style: {
         'width': size() + 'px',
-        'height': size() + 'px'
+        'height': size() + 'px',
+        'top': 'calc(50% + (' + y() + 'px))',
+        'left': 'calc(50% + (' + x() + 'px))'
      }, visible: areVisible">
     <div data-bind="style: {
         'width': 'calc(' + backgroundWidth() + 'px + 40px)',

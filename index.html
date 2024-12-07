@@ -64,6 +64,8 @@
                                               badgeSize: badgeSize,
                                               downloadAction: renderer.downloadAction"></msu-renderer>
                         <msu-guidinglines params="areVisible: showGuides,
+                                                  x: guidesX,
+                                                  y: guidesY,
                                                   size: guidesSize,
                                                   iconSize: iconSize,
                                                   backgroundWidth: backgroundWidth,
@@ -117,6 +119,8 @@
                     <!-- ko if: tab() === 3 -->
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
                         <msu-guides params="areVisible: showGuides,
+                                            x: guidesX,
+                                            y: guidesY,
                                             size: guidesSize"></msu-guides>
                     </div>
                     <!-- /ko -->

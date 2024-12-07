@@ -16,7 +16,9 @@
         this.tab = utils.parseInt(args, "tab", 0);
 
         this.showGuides = utils.parseBool(args, "showGuides", Logo.SHOW_GUIDES);
-        this.guidesSize = utils.parseInt(args, "guidesSize", Logo.GUIDES_SIZE = 200);
+        this.guidesSize = utils.parseInt(args, "guidesSize", Logo.GUIDES_SIZE);
+        this.guidesX = utils.parseInt(args, "guidesX", Logo.GUIDES_X);
+        this.guidesY = utils.parseInt(args, "guidesY", Logo.GUIDES_Y);
 
         this.iconSize = utils.parseInt(args, "iconSize", Logo.ICON_SIZE);
         this.iconX = utils.parseInt(args, "iconX", Logo.ICON_X);
@@ -98,6 +100,8 @@
         return {
             showGuides: this.showGuides(),
             guidesSize: this.guidesSize(),
+            guidesX: this.guidesX(),
+            guidesY: this.guidesY(),
             iconSize: this.iconSize(),
             iconX: this.iconX(),
             iconY: this.iconY(),
@@ -130,6 +134,8 @@
 
     Logo.SHOW_GUIDES = false;
     Logo.GUIDES_SIZE = 200;
+    Logo.GUIDES_X = 0;
+    Logo.GUIDES_Y = 0;
     Logo.ICON_SIZE = 240;
     Logo.ICON_X = 0;
     Logo.ICON_Y = 0;
