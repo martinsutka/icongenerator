@@ -184,6 +184,7 @@
         ctx.clip();
 
         // Clear shadow
+        ctx.shadowColor = "transparent";
         ctx.shadowBlur = 0;
 
         // Badge must be rendered in the end
