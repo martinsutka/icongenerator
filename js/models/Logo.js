@@ -15,7 +15,7 @@
         this.version = args.version || "";
         this.tab = utils.parseInt(args, "tab", 0);
 
-        this.showGuidingLines = utils.parseBool(args, "showGuidingLines", Logo.SHOW_GUIDING_LINES);
+        this.showGuides = utils.parseBool(args, "showGuides", Logo.SHOW_GUIDES);
         this.guidesSize = utils.parseInt(args, "guidesSize", Logo.GUIDES_SIZE = 200);
 
         this.iconSize = utils.parseInt(args, "iconSize", Logo.ICON_SIZE);
@@ -96,7 +96,7 @@
      */
     Logo.prototype.toJson = function() {
         return {
-            showGuidingLines: this.showGuidingLines(),
+            showGuides: this.showGuides(),
             guidesSize: this.guidesSize(),
             iconSize: this.iconSize(),
             iconX: this.iconX(),
@@ -128,7 +128,7 @@
 
     //#region [ Methods : Static ]
 
-    Logo.SHOW_GUIDING_LINES = false;
+    Logo.SHOW_GUIDES = false;
     Logo.GUIDES_SIZE = 200;
     Logo.ICON_SIZE = 240;
     Logo.ICON_X = 0;

@@ -63,7 +63,7 @@
                                               badgeFont: badgeFont,
                                               badgeSize: badgeSize,
                                               downloadAction: renderer.downloadAction"></msu-renderer>
-                        <msu-guidinglines params="isVisible: showGuidingLines,
+                        <msu-guidinglines params="areVisible: showGuides,
                                                   size: guidesSize,
                                                   iconSize: iconSize,
                                                   backgroundWidth: backgroundWidth,
@@ -116,7 +116,7 @@
                     <!-- /ko -->
                     <!-- ko if: tab() === 3 -->
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-                        <msu-guides params="showGuidingLines: showGuidingLines,
+                        <msu-guides params="areVisible: showGuides,
                                             size: guidesSize"></msu-guides>
                     </div>
                     <!-- /ko -->

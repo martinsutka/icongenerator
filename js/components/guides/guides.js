@@ -14,7 +14,7 @@
     let Guides = function (args = {}) {
         console.debug("Guides()");
 
-        this.showGuidingLines = ko.isObservable(args.showGuidingLines) ? args.showGuidingLines : ko.observable(Logo.SHOW_GUIDING_LINES);
+        this.areVisible = ko.isObservable(args.areVisible) ? args.areVisible : ko.observable(Logo.SHOW_GUIDES);
         this.size = ko.isObservable(args.size) ? args.size : ko.observable(Logo.GUIDES_SIZE);
     };
 
