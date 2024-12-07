@@ -68,6 +68,25 @@ require({
                 isBadgeTransparent: true,
                 badgeFont: "300 16px Arial",
                 badgeSize: 60
+            }, {
+                showGuides: true,
+                guidesSize: 148,
+                guidesX: 0,
+                guidesY: -24,
+                iconSize: 168,
+                iconX: 0,
+                iconY: -22,
+                iconShadowSize: 0,
+                iconShadowIntensity: 15,
+                isBackgroundTransparent: false,
+                backgroundWidth: 600,
+                backgroundHeight: 300,
+                backgroundLightIntensity: 0,
+                backgroundShadowSize: 0,
+                backgroundBorderRadius: 0,
+                isBadgeTransparent: true,
+                badgeFont: "300 16px Arial",
+                badgeSize: 60
             }]
         }
     }
