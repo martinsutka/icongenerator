@@ -13,7 +13,7 @@
     let Tabs = function (args = {}) {
         console.debug("Tabs()");
 
-        this.items = [ "Icon", "Background", "Badge" ];
+        this.items = [ "Icon", "Background", "Badge", "Guides" ];
         this.tab = ko.isObservable(args.tab) ? args.tab : ko.observable(0);
         this.tabBar = null;
         this._tabOnChangeSubscribe = null;

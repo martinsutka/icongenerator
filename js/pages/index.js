@@ -20,6 +20,7 @@ define([
     ko.components.register("msu-toolbar", { require: "msu/components/toolbar/toolbar" });
     ko.components.register("msu-tabs", { require: "msu/components/tabs/tabs" });
     ko.components.register("msu-icon", { require: "msu/components/icon/icon" });
+    ko.components.register("msu-guides", { require: "msu/components/guides/guides" });
     ko.components.register("msu-background", { require: "msu/components/background/background" });
     ko.components.register("msu-badge", { require: "msu/components/badge/badge" });
     ko.components.register("msu-renderer", { require: "msu/components/renderer/renderer" });

@@ -1,5 +1,5 @@
 ﻿define([
-    "text!./icon.html",
+    "text!./guides.html",
     "knockout",
     "material-components-web",
     "msu/models/Logo"
@@ -11,17 +11,11 @@
 	 *
 	 * @param {object} args Arguments.
 	 */
-    let Icon = function (args = {}) {
-        console.debug("Icon()");
+    let Guides = function (args = {}) {
+        console.debug("Guides()");
 
-        this.size = ko.isObservable(args.size) ? args.size : ko.observable(Logo.ICON_SIZE);
-        this.x = ko.isObservable(args.x) ? args.x : ko.observable(Logo.ICON_X);
-        this.y = ko.isObservable(args.y) ? args.y : ko.observable(Logo.ICON_Y);
-        this.color = ko.isObservable(args.color) ? args.color : ko.observable(Logo.ICON_COLOR);
-        this.shadowColor = ko.isObservable(args.shadowColor) ? args.shadowColor : ko.observable(Logo.ICON_SHADOW_COLOR);
-        this.shadowSize = ko.isObservable(args.shadowSize) ? args.shadowSize : ko.observable(Logo.ICON_SHADOW_SIZE);
-        this.shadowIntensity = ko.isObservable(args.shadowIntensity) ? args.shadowIntensity : ko.observable(Logo.ICON_SHADOW_INTENSITY);
-        this.svg = ko.isObservable(args.svg) ? args.svg : ko.observable(Logo.ICON_SVG);
+        this.showGuidingLines = ko.isObservable(args.showGuidingLines) ? args.showGuidingLines : ko.observable(Logo.SHOW_GUIDING_LINES);
+        this.guidingSize = ko.isObservable(args.guidingSize) ? args.guidingSize : ko.observable(Logo.GUIDING_SIZE);
     };
 
     //#endregion
@@ -35,7 +29,7 @@
      * 
      * @param {element} node Html element. 
      */
-    Icon.prototype.koDescendantsComplete = function (node) {
+    Guides.prototype.koDescendantsComplete = function (node) {
         const root = node.firstElementChild;
         root.querySelectorAll(".mdc-text-field").forEach((n) => new mdc.textField.MDCTextField(n));
         node.replaceWith(root);
@@ -45,8 +39,8 @@
     /**
      * Dispose.
      */
-    Icon.prototype.dispose = function () {
-        console.debug("~Icon()");
+    Guides.prototype.dispose = function () {
+        console.debug("~Guides()");
     };
 
     //#endregion
@@ -61,18 +55,18 @@
      * @param {object} componentInfo Component into.
      * @returns {object} Instance of the model.
      */
-    Icon.createViewModel = function (params, componentInfo) {
+    Guides.createViewModel = function (params, componentInfo) {
         params = params || {};
         params.element = componentInfo.element.querySelector ? componentInfo.element : componentInfo.element.parentElement || componentInfo.element.parentNode;
 
-        return new Icon(params);
+        return new Guides(params);
     };
 
     //#endregion
 
     return {
         viewModel: { 
-            createViewModel: Icon.createViewModel 
+            createViewModel: Guides.createViewModel 
         },
         template: view
     };

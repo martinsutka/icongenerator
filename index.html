@@ -82,9 +82,7 @@
                     </div>
                     <!-- ko if: tab() === 0 -->
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-                        <msu-icon params="showGuidingLines: showGuidingLines,
-                                          guidingSize: guidingSize,
-                                          color: iconColor,
+                        <msu-icon params="color: iconColor,
                                           size: iconSize,
                                           x: iconX,
                                           y: iconY,
@@ -114,6 +112,12 @@
                                            text: badgeText,
                                            font: badgeFont,
                                            size: badgeSize"></msu-badge>
+                    </div>
+                    <!-- /ko -->
+                    <!-- ko if: tab() === 3 -->
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                        <msu-guides params="showGuidingLines: showGuidingLines,
+                                            guidingSize: guidingSize"></msu-guides>
                     </div>
                     <!-- /ko -->
                 </div>
