@@ -9,7 +9,13 @@ require({
         "text": "./lib/text",
         "css": "./lib/css.min",
         "less": "./lib/less.min",
+        "lzutf8": "./lib/lzutf8.min",
         "material-components-web": "./lib/material-components-web.min"
+    },
+    shim: {
+        "lzutf8": {
+            exports: "LZUTF8"
+        }
     },
     map: {
         "*": {
