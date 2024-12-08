@@ -2,11 +2,12 @@ define([
     "knockout", 
     "module",
     "material-components-web",
+    "lzutf8",
     "msu/models/Logo",
     "msu/bindings/datavalue",
     "msu/bindings/autoselect",
     "msu/polyfills/canvas.textPath"
-], (ko, module, mdc, Logo) => {
+], (ko, module, mdc, lz, Logo) => {
     //#region [ Fields ]
 
     const global = (function () { return this; })();
@@ -54,7 +55,21 @@ define([
 
     ready(() => {
         const options = global.structuredClone(module.config());
-        const logo = global.logo = new Logo(options);
+        let logo = global.logo = new Logo(options);
+
+        // Parse url if needed
+        const hash = global.location.hash.substr(1);
+        if (hash) {
+            try {
+                const query = new URLSearchParams(lz.decompress(hash, { inputEncoding: "Base64", outputEncoding: "String" }));
+                const title = query.get("title");
+                const json = JSON.parse(query.get("json"));
+                logo = global.logo = new Logo(json);
+            }
+            catch(err) {
+                console.error("IconGenerator : ready() : ", err);
+            }
+        }
 
         ko.applyBindings(logo, doc.body, (context) => {
             //context.router = router;

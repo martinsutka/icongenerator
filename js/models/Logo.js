@@ -71,11 +71,11 @@
         const title = prompt("Enter the name of your settings", "My icon settings");
         const json = JSON.stringify(this.toJson());
         const data = `title=${title}&json=${json}`;
-        const result = lz.compress(data, { outputEncoding: "Base64"});
+        const query = lz.compress(data, { outputEncoding: "Base64"});
         const url = encodeURIComponent(global.location.origin
             + global.location.pathname
             + "#"
-            + result);
+            + query);
         const link = global.document.createElement("a");
         link.style.opacity = "0";
         link.style.position = "absolute";

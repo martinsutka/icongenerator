@@ -230,7 +230,12 @@
                 for(var i = result.length - 1; i >= 0; i--) {
                     images.unshift(new Promise((function (width, height, size, i, svg, result, global, paddingX, paddingY, resolve) {
                         svg.style.fill = result[i];
-                        let svgUrl = global.URL.createObjectURL(new Blob([ svg.outerHTML ], { type: "image/svg+xml;charset=utf-8" }))
+
+                        // Need to reparse the svg to remove fill attriutes to render the shadow correcly
+                        let svg2 = new DOMParser().parseFromString(svg.outerHTML, "text/html").querySelector("svg");
+                        svg2.querySelectorAll("[fill]").forEach((el) => el.removeAttribute("fill"));
+                        
+                        let svgUrl = global.URL.createObjectURL(new Blob([ svg2.outerHTML ], { type: "image/svg+xml;charset=utf-8" }))
 
                         let img = new Image();
                         img.onload = (function (width, height, size, i, url) {
