@@ -2,12 +2,11 @@ define([
     "knockout", 
     "module",
     "material-components-web",
-    "lzutf8",
     "msu/models/Logo",
     "msu/bindings/datavalue",
     "msu/bindings/autoselect",
     "msu/polyfills/canvas.textPath"
-], (ko, module, mdc, lzutf8, Logo) => {
+], (ko, module, mdc, Logo) => {
     //#region [ Fields ]
 
     const global = (function () { return this; })();

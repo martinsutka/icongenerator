@@ -1,7 +1,15 @@
 ﻿define([
     "knockout",
+    "lzutf8",
     "msu/utils"
-], (ko, utils) => {
+], (ko, lz, utils) => {
+    //#region [ Fields ]
+    
+    const global = (function() { return this; })();
+    
+    //#endregion
+
+
     //#region [ Constructor ]
 
     /**
@@ -60,7 +68,21 @@
      * Shares the logo as link.
      */
     Logo.prototype.share = function () {
-        console.warn("share %o", this);
+        const title = prompt("Enter the name of your settings", "My icon settings");
+        const json = JSON.stringify(this.toJson());
+        const data = `title=${title}&json=${json}`;
+        const result = lz.compress(data, { outputEncoding: "Base64"});
+        const url = encodeURIComponent(global.location.origin
+            + global.location.pathname
+            + "#"
+            + result);
+        const link = global.document.createElement("a");
+        link.style.opacity = "0";
+        link.style.position = "absolute";
+        link.href = `mailto:?subject=${encodeURIComponent(title)}&body=${url}`;
+        global.document.body.append(link);
+        link.click();
+        link.remove();
     };
 
 
